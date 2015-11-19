@@ -27,6 +27,7 @@ AppBundle\Entity\Bet:
         closedDatetime:
             type: datetime
             column: closed_datetime
+            nullable: true
     manyToOne:
         homeTeam:
             targetEntity: AppBundle\Entity\Team

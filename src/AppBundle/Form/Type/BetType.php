@@ -56,7 +56,7 @@ class BetType extends AbstractType
                 }
             ])
             ->add('save', 'submit', [
-                'label' => 'Next',
+                'label' => 'Create',
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ]
