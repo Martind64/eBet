@@ -3,8 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 class Bet {
+
+    const STATUS_ACTIVE = 1;
+    const STATUS_PAUSED = 2;
+    const STATUS_CLOSED= 3;
 
     /**
      * @var integer
@@ -45,6 +50,11 @@ class Bet {
      * @var \AppBundle\Entity\Game
      */
     private $game;
+
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
+    }
 
     /**
      * Get id
@@ -222,5 +232,63 @@ class Bet {
     public function getGame()
     {
         return $this->game;
+    }
+    /**
+     * @var integer
+     */
+    private $homeOdds;
+
+    /**
+     * @var integer
+     */
+    private $awayOdds;
+
+
+    /**
+     * Set homeOdds
+     *
+     * @param integer $homeOdds
+     *
+     * @return Bet
+     */
+    public function setHomeOdds($homeOdds)
+    {
+        $this->homeOdds = $homeOdds;
+
+        return $this;
+    }
+
+    /**
+     * Get homeOdds
+     *
+     * @return integer
+     */
+    public function getHomeOdds()
+    {
+        return $this->homeOdds;
+    }
+
+    /**
+     * Set awayOdds
+     *
+     * @param integer $awayOdds
+     *
+     * @return Bet
+     */
+    public function setAwayOdds($awayOdds)
+    {
+        $this->awayOdds = $awayOdds;
+
+        return $this;
+    }
+
+    /**
+     * Get awayOdds
+     *
+     * @return integer
+     */
+    public function getAwayOdds()
+    {
+        return $this->awayOdds;
     }
 }

@@ -13,8 +13,17 @@ AppBundle\Entity\Bet:
             column: created_datetime
         status:
             type: integer
+            length: 2
         result:
             type: integer
+            length: 2
+            nullable: true
+        homeOdds:
+            type: integer
+            length: 2
+        awayOdds:
+            type: integer
+            length: 2
         closedDatetime:
             type: datetime
             column: closed_datetime

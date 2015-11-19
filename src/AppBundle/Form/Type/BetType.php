@@ -3,6 +3,7 @@
 namespace AppBundle\Form\Type;
 
 use AppBundle\Entity\Bet;
+use AppBundle\Entity\Game;
 use AppBundle\Entity\Team;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -15,13 +16,19 @@ class BetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('result', 'text', [
+            ->add('homeOdds', 'text', [
                 'attr' => ['placeholder' => ''],
                 'constraints' => [
-                    new NotNull(['message' => 'Please enter a campaign name'])
+                    new NotNull(['message' => 'Please enter odds for home team'])
                 ],
             ])
-            ->add('country', 'entity', [
+            ->add('awayOdds', 'text', [
+                'attr' => ['placeholder' => ''],
+                'constraints' => [
+                    new NotNull(['message' => 'Please enter odds for away team'])
+                ],
+            ])
+            ->add('homeTeam', 'entity', [
                 'class' => Team::class,
                 'property' => 'name',
                 'empty_value' => 'Select home team',
@@ -30,10 +37,28 @@ class BetType extends AbstractType
                         ->orderBy('t.name', 'ASC');
                 }
             ])
+            ->add('awayTeam', 'entity', [
+                'class' => Team::class,
+                'property' => 'name',
+                'empty_value' => 'Select away team',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->orderBy('t.name', 'ASC');
+                }
+            ])
+            ->add('game', 'entity', [
+                'class' => Game::class,
+                'property' => 'name',
+                'empty_value' => 'Select game',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('g')
+                        ->orderBy('g.name', 'ASC');
+                }
+            ])
             ->add('save', 'submit', [
                 'label' => 'Next',
                 'attr' => [
-                    'class' => 'btn-success pull-right'
+                    'class' => 'btn btn-primary'
                 ]
             ]);
     }
