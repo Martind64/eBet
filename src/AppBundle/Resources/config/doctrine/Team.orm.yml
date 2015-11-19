@@ -11,3 +11,9 @@ AppBundle\Entity\Team:
         createdDatetime:
             type: datetime
             column: created_datetime
+        name:
+            type: string
+            column: name
+        logo:
+            type: string
+            column: logo
