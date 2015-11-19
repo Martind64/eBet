@@ -1,0 +1,16 @@
+AppBundle\Entity\Game:
+    type: entity
+    table: games
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdDatetime:
+            type: datetime
+            column: created_datetime
+        name:
+            type: string
+            length: 255

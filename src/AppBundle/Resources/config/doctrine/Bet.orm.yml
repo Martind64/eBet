@@ -1,0 +1,27 @@
+AppBundle\Entity\Bet:
+    type: entity
+    table: bets
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdDatetime:
+            type: datetime
+            column: created_datetime
+        status:
+            type: integer
+        result:
+            type: integer
+        closedDatetime:
+            type: datetime
+            column: closed_datetime
+    manyToOne:
+        homeTeam:
+            targetEntity: AppBundle\Entity\Team
+        awayTeam:
+            targetEntity: AppBundle\Entity\Team
+        game:
+            targetEntity: AppBundle\Entity\Game

@@ -1,0 +1,13 @@
+AppBundle\Entity\Special:
+    type: entity
+    table: specials
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdDatetime:
+            type: datetime
+            column: created_datetime
