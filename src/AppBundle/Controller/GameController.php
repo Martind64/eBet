@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class GameController extends ControllerBase
 {
     /**
-     * @Route("/MarkPedersen", name="homepage")
+     * @Route("/createGame", name="create-game")
      * @Template()
      */
     public function createGameAction(Request $request)
@@ -21,14 +21,19 @@ class GameController extends ControllerBase
         $game = new Game();
 
         $form = $this->createForm(new GameType(), $game);
-        $form->handleRequest($request);
 
-        if($form->isValid())
+        if($request->getMethod('POST'))
         {
-            $em = $this->getEm();
-            $em->persist($game);
-            $em->flush();
+            $form->handleRequest($request);
+
+            if($form->isValid())
+            {
+                $em = $this->getEm();
+                $em->persist($game);
+                $em->flush();
+            }
         }
+
         return [
             'form' =>  $form->createView()
         ];

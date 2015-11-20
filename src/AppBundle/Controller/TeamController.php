@@ -13,7 +13,7 @@ class TeamController extends ControllerBase
 {
 
     /**
-     * @Route("/createTeam", name="createTeam")
+     * @Route("/createTeam", name="create-team")
      * @Template()
      */
     public function createTeamAction(Request $request)
@@ -21,14 +21,20 @@ class TeamController extends ControllerBase
         $team = new Team();
 
         $form = $this->createForm(new TeamType(), $team);
-        $form->handleRequest($request);
 
-        if($form->isValid())
+        if($request->getMethod() == 'POST')
         {
-            $em = $this->getEm();
-            $em->persist($team);
-            $em->flush();
+            $form->handleRequest($request);
+
+            if($form->isValid())
+            {
+                $em = $this->getEm();
+                $em->persist($team);
+                $em->flush();
+            }
         }
+
+
 
         return
         [
