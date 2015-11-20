@@ -13,6 +13,16 @@ class Team {
     private $id;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $logo;
+
+    /**
      * @var \DateTime
      */
     private $createdDatetime;
@@ -56,16 +66,6 @@ class Team {
     {
         return $this->createdDatetime;
     }
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $logo;
-
 
     /**
      * Set name

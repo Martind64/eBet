@@ -12,6 +12,11 @@ class Game {
     private $id;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
      * @var \DateTime
      */
     private $createdDatetime;
@@ -50,11 +55,6 @@ class Game {
     {
         return $this->createdDatetime;
     }
-    /**
-     * @var string
-     */
-    private $name;
-
 
     /**
      * Set name
