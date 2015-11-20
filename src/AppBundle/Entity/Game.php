@@ -22,6 +22,15 @@ class Game {
      */
     private $createdDatetime;
 
+    /**
+     * @var string
+     */
+    private $logo;
+
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
+    }
 
     /**
      * Get id
@@ -80,11 +89,6 @@ class Game {
     {
         return $this->name;
     }
-    /**
-     * @var string
-     */
-    private $logo;
-
 
     /**
      * Set logo
@@ -109,8 +113,5 @@ class Game {
     {
         return $this->logo;
     }
-    public function __construct()
-    {
-        $this->createdDatetime = new DateTime('now');
-    }
+
 }
