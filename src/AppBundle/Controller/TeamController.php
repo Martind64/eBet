@@ -25,7 +25,7 @@ class TeamController extends ControllerBase
 
         if($form->isValid())
         {
-            $em = $this->getEM();
+            $em = $this->getEm();
             $em->persist($team);
             $em->flush();
         }
