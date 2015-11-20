@@ -14,3 +14,5 @@ AppBundle\Entity\Game:
         name:
             type: string
             length: 255
+        logo:
+            type: string

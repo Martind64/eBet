@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 class Game {
 
@@ -78,5 +79,38 @@ class Game {
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * @var string
+     */
+    private $logo;
+
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Game
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
     }
 }

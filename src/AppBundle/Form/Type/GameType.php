@@ -1,8 +1,9 @@
 <?php
-namespace AppBundle\Form\GameType;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 
 class GameType extends AbstractType
 {
@@ -16,6 +17,6 @@ class GameType extends AbstractType
 
     public function getName()
     {
-        return 'task';
+        return 'game';
     }
 }
