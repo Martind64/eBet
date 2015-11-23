@@ -19,10 +19,10 @@ AppBundle\Entity\Bet:
             length: 2
             nullable: true
         homeOdds:
-            type: integer
+            type: float
             length: 2
         awayOdds:
-            type: integer
+            type: float
             length: 2
         closedDatetime:
             type: datetime
