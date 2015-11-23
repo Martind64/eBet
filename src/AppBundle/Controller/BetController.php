@@ -17,6 +17,7 @@ class BetController extends ControllerBase
 {
     /**
      * @Route("/create", name="create-bet")
+     * @Route("/{bet}", name="bet")
      * @Template()
      */
     public function createBetAction(Request $request, Bet $bet = null)
