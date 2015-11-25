@@ -47,6 +47,16 @@ class Bet {
     private $awayTeam;
 
     /**
+     * @var integer
+     */
+    private $homeOdds;
+
+    /**
+     * @var integer
+     */
+    private $awayOdds;
+
+    /**
      * @var \AppBundle\Entity\Game
      */
     private $game;
@@ -233,16 +243,6 @@ class Bet {
     {
         return $this->game;
     }
-    /**
-     * @var integer
-     */
-    private $homeOdds;
-
-    /**
-     * @var integer
-     */
-    private $awayOdds;
-
 
     /**
      * Set homeOdds
