@@ -16,6 +16,10 @@ class BetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('betTime', 'datetime', [
+                'date_widget' => "single_text",
+                'time_widget' => "single_text"
+            ])
             ->add('homeOdds', 'text', [
                 'attr' => [
                     'placeholder' => '',
