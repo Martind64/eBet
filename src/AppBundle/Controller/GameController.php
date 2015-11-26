@@ -10,15 +10,22 @@ use AppBundle\Form\Type\GameType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 
+/**
+ * @Route("/game")
+ */
 class GameController extends ControllerBase
 {
     /**
-     * @Route("/createGame", name="create-game")
+     * @Route("/create", name="create-game")
+     * @Route("/{game}")
      * @Template()
      */
-    public function createGameAction(Request $request)
+    public function createGameAction(Request $request, game $game = null)
     {
-        $game = new Game();
+        if(!$game)
+        {
+            $game = new Game();
+        }
 
         $form = $this->createForm(new GameType(), $game);
 
