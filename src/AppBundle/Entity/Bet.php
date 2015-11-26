@@ -57,6 +57,11 @@ class Bet {
     private $awayOdds;
 
     /**
+     * @var \DateTime
+     */
+    private $betTime;
+
+    /**
      * @var \AppBundle\Entity\Game
      */
     private $game;
@@ -290,5 +295,29 @@ class Bet {
     public function getAwayOdds()
     {
         return $this->awayOdds;
+    }
+
+    /**
+     * Set betTime
+     *
+     * @param \DateTime $betTime
+     *
+     * @return Bet
+     */
+    public function setBetTime($betTime)
+    {
+        $this->betTime = $betTime;
+
+        return $this;
+    }
+
+    /**
+     * Get betTime
+     *
+     * @return \DateTime
+     */
+    public function getBetTime()
+    {
+        return $this->betTime;
     }
 }

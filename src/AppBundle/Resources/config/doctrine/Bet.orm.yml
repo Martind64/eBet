@@ -11,6 +11,9 @@ AppBundle\Entity\Bet:
         createdDatetime:
             type: datetime
             column: created_datetime
+        betTime:
+            type: datetime
+            column: bet_time
         status:
             type: integer
             length: 2
