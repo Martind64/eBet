@@ -30,7 +30,7 @@ class BetType extends AbstractType
             ])
             ->add('homeTeam', 'entity', [
                 'class' => Team::class,
-                'property' => 'name',
+                'choice_label' => 'name',
                 'empty_value' => 'Select home team',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('t')
@@ -39,7 +39,7 @@ class BetType extends AbstractType
             ])
             ->add('awayTeam', 'entity', [
                 'class' => Team::class,
-                'property' => 'name',
+                'choice_label' => 'name',
                 'empty_value' => 'Select away team',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('t')
@@ -48,7 +48,7 @@ class BetType extends AbstractType
             ])
             ->add('game', 'entity', [
                 'class' => Game::class,
-                'property' => 'name',
+                'choice_label' => 'name',
                 'empty_value' => 'Select game',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('g')
