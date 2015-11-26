@@ -17,18 +17,25 @@ class BetType extends AbstractType
     {
         $builder
             ->add('homeOdds', 'text', [
-                'attr' => ['placeholder' => ''],
+                'attr' => [
+                    'placeholder' => '',
+                    'class' => 'form-control'
+                ],
                 'constraints' => [
                     new NotNull(['message' => 'Please enter odds for home team'])
                 ],
             ])
             ->add('awayOdds', 'text', [
-                'attr' => ['placeholder' => ''],
+                'attr' => [
+                    'placeholder' => '',
+                    'class' => 'form-control'
+                ],
                 'constraints' => [
                     new NotNull(['message' => 'Please enter odds for away team'])
                 ],
             ])
             ->add('homeTeam', 'entity', [
+                'attr' => ['class' => 'form-control'],
                 'class' => Team::class,
                 'property' => 'name',
                 'empty_value' => 'Select home team',
@@ -38,6 +45,7 @@ class BetType extends AbstractType
                 }
             ])
             ->add('awayTeam', 'entity', [
+                'attr' => ['class' => 'form-control'],
                 'class' => Team::class,
                 'property' => 'name',
                 'empty_value' => 'Select away team',
@@ -47,6 +55,7 @@ class BetType extends AbstractType
                 }
             ])
             ->add('game', 'entity', [
+                'attr' => ['class' => 'form-control'],
                 'class' => Game::class,
                 'property' => 'name',
                 'empty_value' => 'Select game',

@@ -1,16 +1,10 @@
-{% extends '@App/base.html.twig' %}
+{% extends '@App/adminBase.html.twig' %}
 
-{% block body %}
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                {{ form_end(form) }}
-            </div>
+{% block rightColumn %}
+        <div class="well">
+            <h1>Bet</h1>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
         </div>
-    </div>
-
 {% endblock %}

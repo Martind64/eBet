@@ -1,9 +1,10 @@
-{% extends 'AppBundle::base.html.twig' %}
+{% extends '@App/adminBase.html.twig' %}
 
-{% block body %}
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-
+{% block rightColumn %}
+    <div class="well">
+        <h1>Game</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
