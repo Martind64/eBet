@@ -9,16 +9,24 @@ use AppBundle\Form\Type\TeamType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Team;
 
+/**
+ * @Route("/team")
+ */
+
 class TeamController extends ControllerBase
 {
 
     /**
-     * @Route("/createTeam", name="create-team")
+     * @Route("/create", name="create-team")
+     * @Route("/{team}")
      * @Template()
      */
-    public function createTeamAction(Request $request)
+    public function createTeamAction(Request $request, Team $team = null)
     {
-        $team = new Team();
+        if(!$team)
+        {
+            $team = new Team();
+        }
 
         $form = $this->createForm(new TeamType(), $team);
 
