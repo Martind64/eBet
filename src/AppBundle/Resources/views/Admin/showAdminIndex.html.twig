@@ -1,0 +1,39 @@
+{% extends '@App/adminBase.html.twig' %}
+
+
+{% block rightColumn %}
+
+    <table class="table">
+        <tc><h2>All bets</h2></tc>
+            <tr>
+                <th>Home odds</th>
+                <th>Away odds</th>
+                <th>Home team</th>
+                <th>Away team</th>
+                <th>game</th>
+                <th>result</th>
+                <th>status</th>
+            </tr>
+
+        {% for b in bets %}
+            <tr>
+                <td>{{ b.homeOdds}}</td>
+                <td>{{ b.awayOdds}}</td>
+                <td>{{ b.homeTeam.name}}</td>
+                <td>{{ b.awayTeam.name}}</td>
+                <td>{{ b.Game.name}}</td>
+                <td>{{ b.result}}</td>
+                {% if b.status == constant('AppBundle\\Entity\\Bet::STATUS_ACTIVE') %}
+                    <td>active</td>
+                {% elseif b.status == constant('AppBundle\\Entity\\Bet::STATUS_PAUSED') %}
+                    <td>paused</td>
+                {% elseif b.status == constant('AppBundle\\Entity\\Bet::STATUS_CLOSED')%}
+                    <td>closed</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}
