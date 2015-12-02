@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * @Route("/bet")
+ * @Route("/admin/bet")
  */
 class BetController extends ControllerBase
 {

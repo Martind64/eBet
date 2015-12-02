@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Team;
 
 /**
- * @Route("/team")
+ * @Route("/admin/team")
  */
 
 class TeamController extends ControllerBase

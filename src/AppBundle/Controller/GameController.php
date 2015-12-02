@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 
 /**
- * @Route("/game")
+ * @Route("/admin/game")
  */
 class GameController extends ControllerBase
 {
