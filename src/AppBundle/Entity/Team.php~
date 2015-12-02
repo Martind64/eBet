@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 class Team {
 
@@ -12,10 +13,25 @@ class Team {
     private $id;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $logo;
+
+    /**
      * @var \DateTime
      */
     private $createdDatetime;
 
+
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
+    }
 
     /**
      * Get id
@@ -49,5 +65,53 @@ class Team {
     public function getCreatedDatetime()
     {
         return $this->createdDatetime;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Team
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Team
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
     }
 }
