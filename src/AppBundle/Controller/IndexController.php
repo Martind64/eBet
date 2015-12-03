@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller;
 
 use AppBundle\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Response;
@@ -8,23 +8,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Bet;
 
-
-/**
- * @Route("admin")
- */
-class AdminController extends ControllerBase
+class IndexController extends ControllerBase
 {
     /**
-     * @Route("/index", name="admin-index")
+     * @Route("/index", name="index")
      * @Template()
      */
     public function showMatchesAction()
     {
-        $bets = $this->getEM()->getRepository('AppBundle:Bet')->findAll();
+        $betRepo = $this->getEM()->getRepository('AppBundle:Bet');
+        $dotaGames = $betRepo->findDota2Matches();
 
         return [
-            'bets' => $bets
+            'bets' => $dotaGames
         ];
 
     }

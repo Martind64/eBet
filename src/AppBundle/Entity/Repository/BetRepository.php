@@ -9,7 +9,6 @@ class BetRepository extends EntityRepository
 
     public function findDota2Matches()
     {
-
         $qb = $this->getEntityManager()->createQueryBuilder();
 
         $query = $qb->select('b')
