@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Controller\ControllerBase;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -22,11 +23,13 @@ class IndexController extends ControllerBase
         $dotaBets = $betRepo->findDota2Matches();
         $csgoBets = $betRepo->findCsGoMatches();
 
+
         return [
             'dotaBets' => $dotaBets,
-            'csgoBets' => $csgoBets
+            'csgoBets' => $csgoBets,
         ];
     }
+
 
 
 
