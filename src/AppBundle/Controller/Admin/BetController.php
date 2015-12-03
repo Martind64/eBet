@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\Controller\ControllerBase;
 use AppBundle\Entity\Bet;
 use AppBundle\Form\Type\BetType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
