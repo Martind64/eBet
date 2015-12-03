@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@App/base.html.twig' %}
 
 
 {% block body %}
@@ -6,30 +6,39 @@
         <table class="table table-hover">
             <tc><h2>All bets</h2></tc>
             <tr>
-                <th>Home odds</th>
-                <th>Away odds</th>
-                <th>Home team</th>
-                <th>Away team</th>
-                <th>game</th>
-                <th>result</th>
-                <th>status</th>
+                <th>CSGO</th>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <th>Match</th>
+                <th>1</th>
+                <th>X</th>
+                <th>2</th>
             </tr>
 
-            {% for b in bets %}
-                <tr onclick="document.location = '{{ path('bet', {'bet': b.id}) }}'">
+            {% for b in dotaBets %}
+                <tr>
+                    <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
+                    <td>{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</td>
                     <td>{{ b.homeOdds}}</td>
-                    <td>{{ b.awayOdds}}</td>
-                    <td>{{ b.homeTeam.name}}</td>
-                    <td>{{ b.awayTeam.name}}</td>
-                    <td>{{ b.Game.name}}</td>
                     <td>{{ b.result}}</td>
-                    {% if b.status == constant('AppBundle\\Entity\\Bet::STATUS_ACTIVE') %}
-                        <td>active</td>
-                    {% elseif b.status == constant('AppBundle\\Entity\\Bet::STATUS_PAUSED') %}
-                        <td>paused</td>
-                    {% elseif b.status == constant('AppBundle\\Entity\\Bet::STATUS_CLOSED')%}
-                        <td>closed</td>
-                    {% endif %}
+                    <td>{{ b.awayOdds}}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <th>Dota2</th>
+            </tr>
+
+            {% for b in csgoBets %}
+                {% for b in dotaBets %}
+                    <tr>
+                        <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
+                        <td>{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</td>
+                        <td>{{ b.homeOdds}}</td>
+                        <td>{{ b.result}}</td>
+                        <td>{{ b.awayOdds}}</td>
+                    </tr>
+                {% endfor %}
                 </tr>
             {% endfor %}
 
