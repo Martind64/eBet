@@ -18,11 +18,10 @@ class IndexController extends ControllerBase
      */
     public function showMatchesAction()
     {
-        $betRepo = $this->getEM()->getRepository('AppBundle:Bet');
-        $dotaGames = $betRepo->findDota2Matches();
+        $bets = $this->getEM()->getRepository('AppBundle:Bet')->findDota2Matches();
 
         return [
-            'bets' => $dotaGames
+            'bets' => $bets
         ];
 
     }
