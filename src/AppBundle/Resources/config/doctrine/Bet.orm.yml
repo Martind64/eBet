@@ -1,5 +1,6 @@
 AppBundle\Entity\Bet:
     type: entity
+    repositoryClass: AppBundle\Entity\Repository\BetRepository
     table: bets
     id:
         id:

@@ -5,10 +5,6 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
-/**
- * Class Bet
- * @Entity(repositoryClass="Repository\BetRepository")
- */
 class Bet {
 
     const STATUS_ACTIVE = 1;

@@ -25,9 +25,12 @@ class BetRepository extends EntityRepository
     public function findCsGoMatches()
     {
 
-//        SELECT * FROM bets
-//        JOIN games ON games.id = bets.game_id
-//        WHERE games.name = 'Dota'
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $qb->select('b')
+            ->from('AppBundle:Bet', 'b');
+
+        return $query->getQuery()->getResult();
 
 
 
