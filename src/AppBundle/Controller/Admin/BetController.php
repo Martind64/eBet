@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Bet;
 use AppBundle\Form\Type\BetType;
@@ -45,4 +45,5 @@ class BetController extends ControllerBase
             'form' => $form->createView(),
         ];
     }
+
 }
