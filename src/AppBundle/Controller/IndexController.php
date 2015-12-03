@@ -19,14 +19,13 @@ class AdminController extends ControllerBase
      * @Route("/index", name="admin-index")
      * @Template()
      */
-    public function showAdminIndexAction()
+    public function showMatchesAction()
     {
         $bets = $this->getEM()->getRepository('AppBundle:Bet')->findAll();
 
         return [
             'bets' => $bets
         ];
-
 
     }
 }
