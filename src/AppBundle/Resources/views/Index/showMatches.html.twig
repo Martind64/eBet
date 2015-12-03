@@ -1,10 +1,10 @@
-{% extends '@App/base.html.twig' %}
+{% extends '@App/layoutBase.html.twig' %}
 
 
-{% block body %}
-    <div class="container">
+{% block content %}
+
     <div class="well">
-        <table class="table table-hover">
+        <table class="table table-hover" id="index">
             <tc><h2>All bets</h2></tc>
             <tr>
                 <th>Dota2</th>
@@ -44,6 +44,5 @@
             {% endfor %}
 
         </table>
-    </div>
     </div>
 {% endblock %}

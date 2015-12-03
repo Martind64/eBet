@@ -26,7 +26,9 @@ class IndexController extends ControllerBase
             'dotaBets' => $dotaBets,
             'csgoBets' => $csgoBets
         ];
-
     }
+
+
+
 }
 
