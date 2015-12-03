@@ -11,3 +11,4 @@ AppBundle\Entity\User:
         balance:
             type: decimal
             scale: 2
+            nullable: true
