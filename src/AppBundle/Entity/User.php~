@@ -12,6 +12,12 @@ class User extends BaseUser
      * @var integer
      */
     protected $id;
+    /**
+     * @var integer
+     */
+    protected $balance;
+
+
 
     public function __construct()
     {

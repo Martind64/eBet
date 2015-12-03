@@ -7,3 +7,7 @@ AppBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        balance:
+            type: decimal
+            scale: 2
