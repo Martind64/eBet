@@ -1,0 +1,9 @@
+{% extends '@App/layoutBase.html.twig' %}
+
+
+{% block index %}
+    <p>Balance: {{ balance }}</p>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
