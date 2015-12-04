@@ -17,125 +17,57 @@ use Symfony\Component\HttpFoundation\Request;
 class BalanceController extends ControllerBase
 {
     /**
-     * @Route("/index",name="addFunds")
-     * @Template()
+     * @Route("/deposit",name="deposit-balance")
      */
-    public function indexAction(Request $request)
+    public function depositAction(Request $request)
     {
-        $em = $this->getEM();
+        $em = $this->getEm();
         $user = $this->getUser();
-        $emptyUser = new User();
 
-        // build form
-        $addForm = $this->container
-            ->get('form.factory')
-            ->createNamedBuilder('addFunds', 'form', NULL, array('validation_groups' => array()))
-            ->add('balance', 'number')
-            ->add('submit', 'submit');
+        $balance = $request->request->get('deposit-balance');
 
-        // get form from form builder
-        $addFundsForm = $addForm
-            ->getForm()
-            ->handleRequest($request);
-
-        $withdrawForm = $this->container
-            ->get('form.factory')
-            ->createNamedBuilder('addFunds', 'form', NULL, array('validation_groups' => array()))
-            ->add('balance', 'number')
-            ->add('submit', 'submit');
-
-        // get form from form builder
-        $withdrawFundsForm = $withdrawForm
-            ->getForm()
-            ->handleRequest($request);
+        $user
+            ->setBalance($user->getBalance() + $balance);
 
 
-                if($addFundsForm->isValid())
-                {
-                    $balance = $user->getBalance() + $emptyUser->getBalance();
-                    $user->setBalance($balance);
-                    $em->persist($user);
-                    $em->flush();
-                }
+        $em->persist($user);
+        $em->flush($user);
 
-                if($withdrawFundsForm->isValid())
-                {
-                    $balance = $user->getBalance() - $emptyUser->getBalance();
-                    $user->setBalance($balance);
-                    $em->persist($user);
-                    $em->flush();
-                }
-
-
-
-        return [
-            'addForm' => $addFundsForm->createView(),
-            'withdrawForm' => $withdrawFundsForm->createView(),
-            'user' => $user
-        ];
+        return $this->redirectToRoute('show-balance');
 
     }
 
     /**
-     * @Route(name="withdrawFunds")
+     * @Route("/index",name="show-balance")
      * @Template()
      */
-    public function withdrawFundsAction(Request $request)
+    public function indexAction()
     {
-        //        if($request->getMethod() == 'POST')
-//        {
-//            $addForm->handleRequest($request);
-//            if($addForm->isValid())
-//            {
-//                $balance = $user->getBalance() + $emptyUser->getBalance();
-//                $user->setBalance($balance);
-//                $em->persist($user);
-//                $em->flush();
-//            }
-//
-//            $withdrawForm->handleRequest($request);
-//            if($withdrawForm->isValid())
-//            {
-//                $balance = $user->getBalance() - $emptyUser->getBalance();
-//                $user->setBalance($balance);
-//                $em->persist($user);
-//                $em->flush();
-//            }
-//
-//        }
-
-
-
-
-
-
-
-        $em = $this->getEM();
         $user = $this->getUser();
-        $emptyUser = new User();
 
-        $form = $this->createForm(new AddFundsType(), $emptyUser);
-
-        if($request->getMethod() == 'POST')
-        {
-            $form->handleRequest($request);
-            if($form->isValid())
-            {
-                $balance = $user->getBalance() - $emptyUser->getBalance();
-                $user->setBalance($balance);
-                $em->persist($user);
-                $em->flush();
-            }
-
-        }
         return [
-            'form' => $form->createView(),
             'user' => $user
         ];
-
     }
 
+    /**
+     * @Route("/withdraw",name="withdraw-balance")
+     */
+    public function withdrawAction(Request $request)
+    {
+        $em = $this->getEm();
+        $user = $this->getUser();
+
+        $wbalance = $request->request->get('withdraw-balance');
+        $user
+            ->setBalance($user->getBalance() - $wbalance);
 
 
+        $em->persist($user);
+        $em->flush($user);
+
+        return $this->redirectToRoute('show-balance');
+
+    }
 }
 
