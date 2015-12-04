@@ -1,0 +1,21 @@
+AppBundle\Entity\Coupon:
+    type: entity
+    table: coupons
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdDatetime:
+            type: datetime
+            column: created_datetime
+        wager:
+            type: decimal
+            scale: 2
+    manyToOne:
+        bet:
+            targetEntity: AppBundle\Entity\Bet
+        user:
+            targetEntity: AppBundle\Entity\User
