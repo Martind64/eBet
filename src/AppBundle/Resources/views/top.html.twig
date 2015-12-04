@@ -1,4 +1,6 @@
-<a href="{{ path('index') }}"><h1>eBet</h1></a>
-<a href="{{ path('fos_user_security_login') }}">Login</a>
-<a href="{{ path('fos_user_profile_show') }}">Profile</a>
+{% block header %}
+    <a href="{{ path('index') }}"><h1>eBet</h1></a>
+    <a href="{{ path('fos_user_security_login') }}">Login</a>
+    <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+{% endblock %}
 

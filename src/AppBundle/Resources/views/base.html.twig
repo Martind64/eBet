@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}eBet{% endblock %}</title>
+<<<<<<< HEAD
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}" />
@@ -12,10 +13,19 @@
 
 
 
+=======
+    {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/jquery.datetimepicker.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" />
+    {% endblock %}
+    {% block header %}{% endblock %}
+>>>>>>> fix layout
 </head>
 <body>
 {% block body %}{% endblock %}
-
+{% block footer %}{% endblock %}
 {% block javascripts %}{% endblock %}
 
     <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>

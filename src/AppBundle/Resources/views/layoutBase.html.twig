@@ -1,9 +1,8 @@
 {% extends '@App/base.html.twig' %}
-
+{% block header %}
+    {% include '@App/top.html.twig' %}
+{% endblock %}
 {% block body %}
-            {% block top %}
-                {% include '@App/top.html.twig' %}
-            {% endblock %}
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -17,11 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            {% block footer %}
-                {% include '@App/footer.html.twig' %}
-            {% endblock %}
-        </div>
-    </div>
+{% endblock %}
+{% block footer %}
+    {% include '@App/footer.html.twig' %}
 {% endblock %}
