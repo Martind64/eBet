@@ -1,0 +1,51 @@
+{% extends '@App/layoutBase.html.twig' %}
+
+{% block index %}
+
+    <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addFunds">Add funds</button></a>
+    <div class="modal fade" id="addFunds">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add funds to your account</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                        <div class="col-md-6">
+                            <p>Your current balance is: {{ user.balance }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#withdrawFunds">Withdraw funds</button></a>
+    <div class="modal fade" id="withdrawFunds">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add funds to your account</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                        <div class="col-md-6">
+                            <p>Your current balance is: {{ user.balance }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

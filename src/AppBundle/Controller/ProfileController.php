@@ -46,8 +46,6 @@ class ProfileController extends ControllerBase
 
         $form = $this->createForm(new AddFundsType(), $emptyUser);
 
-        if($request->getMethod() == 'POST')
-        {
             $form->handleRequest($request);
             if($form->isValid())
             {
@@ -57,7 +55,6 @@ class ProfileController extends ControllerBase
                 $em->flush();
             }
 
-        }
 
 
         return $this->render('FOSUserBundle:Profile:show.html.twig', [

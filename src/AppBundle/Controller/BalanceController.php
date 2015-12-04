@@ -11,12 +11,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class UserController extends ControllerBase
+/**
+ * @Route("/balance")
+ */
+class BalanceController extends ControllerBase
 {
     /**
-     * @Route("/addFunds",name="addFunds")
+     * @Route("/index",name="addFunds")
+     * @Template()
      */
-    public function addFunds(Request $request)
+    public function addFundsAction(Request $request)
     {
         $em = $this->getEM();
         $user = $this->getUser();
@@ -34,16 +38,44 @@ class UserController extends ControllerBase
                 $em->persist($user);
                 $em->flush();
             }
-
         }
-
-        return $this->render('AppBundle::test.html.twig', [
+        return [
             'form' => $form->createView(),
             'user' => $user
-        ]);
+        ];
 
     }
 
+    /**
+     * @Route(name="withdrawFunds")
+     * @Template()
+     */
+    public function withdrawFundsAction(Request $request)
+    {
+        $em = $this->getEM();
+        $user = $this->getUser();
+        $emptyUser = new User();
+
+        $form = $this->createForm(new AddFundsType(), $emptyUser);
+
+        if($request->getMethod() == 'POST')
+        {
+            $form->handleRequest($request);
+            if($form->isValid())
+            {
+                $balance = $user->getBalance() - $emptyUser->getBalance();
+                $user->setBalance($balance);
+                $em->persist($user);
+                $em->flush();
+            }
+
+        }
+        return [
+            'form' => $form->createView(),
+            'user' => $user
+        ];
+
+    }
 
 
 
