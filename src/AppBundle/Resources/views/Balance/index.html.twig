@@ -12,9 +12,9 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            {{ form_start(form) }}
-                            {{ form_widget(form) }}
-                            {{ form_end(form) }}
+                            {{ form_start(addForm) }}
+                            {{ form_widget(addForm) }}
+                            {{ form_end(addForm) }}
                         </div>
                         <div class="col-md-6">
                             <p>Your current balance is: {{ user.balance }}</p>
@@ -35,9 +35,9 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            {{ form_start(form) }}
-                            {{ form_widget(form) }}
-                            {{ form_end(form) }}
+                            {{ form_start(withdrawForm) }}
+                            {{ form_widget(withdrawForm) }}
+                            {{ form_end(withdrawForm) }}
                         </div>
                         <div class="col-md-6">
                             <p>Your current balance is: {{ user.balance }}</p>

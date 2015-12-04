@@ -3,7 +3,7 @@
 
 {% block index %}
 
-    <p>Balance: {{ user.balance }}</p>
+    <p>Balance: </p>
     <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Add funds</button></a>
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
@@ -14,12 +14,9 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            {{ form_start(form) }}
-                            {{ form_widget(form) }}
-                            {{ form_end(form) }}
                         </div>
                         <div class="col-md-6">
-                            <p>Your current balance is: {{ user.balance }}</p>
+                            <p>Your current balance is: </p>
                         </div>
                     </div>
                 </div>
