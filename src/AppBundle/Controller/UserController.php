@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Controller\ControllerBase;
+use AppBundle\Entity\User;
+use AppBundle\Form\Type\AddFundsType;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,21 +14,33 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends ControllerBase
 {
     /**
-     * @Route("/addFunds/{money}", name="addFunds")
+     * @Route("/addFunds",name="addFunds")
      */
-    public function addFunds($money)
+    public function addFunds(Request $request)
     {
         $em = $this->getEM();
         $user = $this->getUser();
+        $emptyUser = new User();
 
-        $balance = $user->getBalance() + $money;
+        $form = $this->createForm(new AddFundsType(), $emptyUser);
 
-        $result = $user->setBalance($balance);
+        if($request->getMethod() == 'POST')
+        {
+            $form->handleRequest($request);
+            if($form->isValid())
+            {
+                $balance = $user->getBalance() + $emptyUser->getBalance();
+                $user->setBalance($balance);
+                $em->persist($user);
+                $em->flush();
+            }
 
-        $em->persist($result);
-        $em->flush();
+        }
 
-        return $this->redirectToRoute('fos_user_profile_show');
+        return $this->render('AppBundle::test.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user
+        ]);
 
     }
 
