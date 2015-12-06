@@ -62,12 +62,11 @@ class BalanceController extends ControllerBase
         $user
             ->setBalance($user->getBalance() - $wbalance);
 
-
         $em->persist($user);
         $em->flush($user);
 
         return $this->redirectToRoute('show-balance');
-
     }
+
 }
 
