@@ -1,6 +1,5 @@
 {% extends '@App/Admin/adminBase.html.twig' %}
 
-
 {% block rightColumn %}
     <div class="well">
     <table class="table table-hover">
@@ -14,7 +13,6 @@
                 <th>result</th>
                 <th>status</th>
             </tr>
-
         {% for b in bets %}
             <tr onclick="document.location = '{{ path('bet', {'bet': b.id}) }}'">
                 <td>{{ b.homeOdds}}</td>
@@ -32,8 +30,6 @@
                 {% endif %}
             </tr>
         {% endfor %}
-
     </table>
     </div>
-
 {% endblock %}

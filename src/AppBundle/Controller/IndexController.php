@@ -29,12 +29,6 @@ class IndexController extends ControllerBase
             'csgoBets' => $csgoBets,
         ];
     }
-
-
-
-
-
-
-
 }
 
+ 
