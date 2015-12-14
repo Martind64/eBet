@@ -12,18 +12,23 @@
             <tr>
                 <th>Time</th>
                 <th>Match</th>
-                <th>1</th>
-                <th>X</th>
-                <th>2</th>
+                <th>Odds</th>
+
             </tr>
 
             {% for b in dotaBets %}
                 <tr>
                     <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
                     <td>{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</td>
-                    <td>{{ b.homeOdds}}</td>
-                    <td>{{ b.result}}</td>
-                    <td>{{ b.awayOdds}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="button" value="{{ b.homeOdds }}">{{ b.homeOdds }}</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="button">X</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="button" value="{{ b.awayOdds }}">{{ b.awayOdds }}</button>
+                    </td>
                 </tr>
             {% endfor %}
             <tr>
@@ -31,7 +36,6 @@
             </tr>
 
             {% for b in csgoBets %}
-                {% for b in dotaBets %}
                     <tr>
                         <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
                         <td>{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</td>
@@ -39,10 +43,11 @@
                         <td>{{ b.result}}</td>
                         <td>{{ b.awayOdds}}</td>
                     </tr>
-                {% endfor %}
-                </tr>
             {% endfor %}
-
         </table>
-
+        </div>
+{% endblock %}
+{% block js %}
+    <script>
+    </script>
 {% endblock %}
