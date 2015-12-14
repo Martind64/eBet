@@ -21,13 +21,78 @@
                     <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
                     <td>{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="button" value="{{ b.homeOdds }}">{{ b.homeOdds }}</button>
+                        <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#homeOdds" value="{{ b.homeOdds }}">{{ b.homeOdds }}</button></a>
+                        <div class="modal fade" id="homeOdds">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Place a bet</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <form method="post" class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">Odds {{ b.homeOdds }}</label>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <button type="submit" class="btn-success pull-right btn">Place bet</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
+
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="button">X</button>
-                    </td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="button" value="{{ b.awayOdds }}">{{ b.awayOdds }}</button>
+                        <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#awayOdds" value="{{ b.awayOdds }}">{{ b.awayOdds }}</button></a>
+                        <div class="modal fade" id="awayOdds">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Place a bet</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <form method="post" class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">Odds {{ b.awayOdds }}</label>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <button type="submit" class="btn-success pull-right btn">Place bet</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
