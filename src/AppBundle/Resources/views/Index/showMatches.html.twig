@@ -13,16 +13,14 @@
                 <th>Time</th>
                 <th>Match</th>
                 <th>Odds</th>
-
             </tr>
-
             {% for b in dotaBets %}
                 <tr>
                     <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
                     <td>{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</td>
                     <td>
-                        <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#homeOdds" value="{{ b.homeOdds }}">{{ b.homeOdds }}</button></a>
-                        <div class="modal fade" id="homeOdds">
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#a{{ b.id }}" value="{{ b.homeOdds }}">{{ b.homeOdds }}</button>
+                        <div class="modal fade" id="a{{ b.id }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -52,6 +50,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +60,8 @@
 
                     <td>
                     <td>
-                        <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#awayOdds" value="{{ b.awayOdds }}">{{ b.awayOdds }}</button></a>
-                        <div class="modal fade" id="awayOdds">
+                        <a href="#" class="btn btn-primary" type="button" data-toggle="modal" data-target="#b{{ b.id }}" value="{{ b.awayOdds }}">{{ b.awayOdds }}</a>
+                        <div class="modal fade" id="b{{ b.id }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -90,6 +91,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +103,6 @@
             <tr>
                 <th>CSGO</th>
             </tr>
-
             {% for b in csgoBets %}
                     <tr>
                         <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
@@ -113,6 +116,4 @@
         </div>
 {% endblock %}
 {% block js %}
-    <script>
-    </script>
 {% endblock %}
