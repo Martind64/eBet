@@ -2,6 +2,73 @@
     cursor: pointer;
 }
 
-#ebet-top {
-    border-bottom: solid 1px orange;
+.navbar{
 }
+#loginbar {
+    text-align: right;
+    background-color: #ff741a;
+}
+#login {
+    margin-right: 477px;
+}
+#topbar {
+    color: white;
+    text-decoration: none;"
+    margin: 10px;
+    padding: 1px 3px;
+}
+#topbar:hover {
+    background-color: #e65a00;
+    text-decoration: none;
+}
+.billedebar {
+
+}
+img.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Navigations bar */
+#navigationsbar {
+    text-align: left;
+    background-color: #4d94ff;
+}
+
+        #navibar {
+            margin-left: 470px;
+        }
+
+        #hvid {
+            color: white;
+
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+        }
+
+        li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 8px 10px;
+            text-decoration: none;
+            font-size: 20px;
+            border: 1px solid #4d94ff;
+        }
+
+        li a:hover {
+            background-color: #3384ff;
+            text-decoration: none;
+            border: 1px solid #000000;
+        }
+/* Navigations bar */

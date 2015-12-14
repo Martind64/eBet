@@ -6,7 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                {% block left %}{% endblock %}
+                {% block left %}
+                    {% include '@App/left.html.twig' %}
+                {% endblock %}
             </div>
             <div class="col-lg-6">
                 {% block index %}{% endblock %}

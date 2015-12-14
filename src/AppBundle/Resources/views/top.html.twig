@@ -1,7 +1,22 @@
 <div id="ebet-top">
-    <div class="container">
-        <a href="{{ path('index') }}"><h1>eBet</h1></a>
-        <a href="{{ path('fos_user_security_login') }}">Login</a>
-        <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+    <div id="loginbar">
+        <div id="login">
+                <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
+                <a id="topbar" href="¤">Opret bruger</a>
+        </div>
+    </div>
+    <div class="billedebar">
+        <img class="logo" src="{{ asset('bundles/app/img/ebet.jpg') }}"/>
+    </div>
+    <div class="navigationsbar" id="navigationsbar">
+        <div id="navibar">
+            <ul>
+        <li><a href="{{ path('index') }}" id="hvid">Forside</a></li>
+        <li><a href="{{ path('fos_user_profile_show') }}" id="hvid">Profile</a></li>
+        <li><a href="¤" id="hvid">Test1</a></li>
+        <li><a href="¤" id="hvid">Test2</a></li>
+        <li><a href="¤" id="hvid">DetteERTest3</a></li>
+            </ul>
+        </div>
     </div>
 </div>
