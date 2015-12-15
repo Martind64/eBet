@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\Controller\ControllerBase;
 use AppBundle\Entity\Bet;
 use AppBundle\Form\Type\BetType;
+use AppBundle\Form\Type\ResultType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -18,7 +19,7 @@ class BetController extends ControllerBase
 {
     /**
      * @Route("/create", name="create-bet")
-     * @Route("/{bet}", name="bet")
+     * @Route("/edit/{bet}", name="bet")
      * @Template()
      */
     public function createBetAction(Request $request, Bet $bet = null)
@@ -46,5 +47,41 @@ class BetController extends ControllerBase
             'form' => $form->createView(),
         ];
     }
+
+
+    /**
+     * @Route("/result", name="show-result")
+     * @Template()
+     */
+    public function showResultAction()
+    {
+        $bets = $this->getEM()->getRepository('AppBundle:Bet')->findAll();
+
+        return [
+            'bets' => $bets
+        ];
+
+    }
+
+        /**
+     * @Route("/result/{bet}", name="update-result")
+     */
+    public function updateResult(Request $request, Bet $bet)
+    {
+        $form = $this->createForm(new ResultType(), $bet);
+
+
+        if($request->getMethod() == 'POST')
+        {
+            $form->handleRequest($request);
+
+            if($form->isValid())
+            {
+
+
+            }
+        }
+    }
+
 
 }
