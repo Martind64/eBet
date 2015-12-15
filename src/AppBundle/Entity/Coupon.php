@@ -23,6 +23,10 @@ class Coupon {
     private $wager;
 
 
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
+    }
     /**
      * Get id
      *

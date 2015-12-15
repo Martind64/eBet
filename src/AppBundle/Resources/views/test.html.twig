@@ -3,24 +3,6 @@
 
 {% block index %}
 
-    <p>Balance: </p>
-    <a href="#"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Add funds</button></a>
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Add funds to your account</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                        </div>
-                        <div class="col-md-6">
-                            <p>Your current balance is: </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ user }}
+
 {% endblock %}

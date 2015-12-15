@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Controller\ControllerBase;
+use AppBundle\Entity\Coupon;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,7 +15,7 @@ use AppBundle\Entity\Bet;
 class IndexController extends ControllerBase
 {
     /**
-     * @Route("/index", name="index")
+     * @Route("/", name="index")
      * @Template()
      */
     public function showMatchesAction()
@@ -28,6 +29,35 @@ class IndexController extends ControllerBase
             'dotaBets' => $dotaBets,
             'csgoBets' => $csgoBets,
         ];
+    }
+
+
+    /**
+     * @Route("/coupon/{betId}", name="create-coupon")
+     */
+    public function createCouponAction(Request $request, $betId)
+    {
+        $user = $this->getUser();
+        if(!$user)
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
+        $em = $this->getEM();
+        $coupon = new Coupon();
+        $bet = $em->getRepository(Bet::class)->find($betId);
+
+        $userBet = $request->request->get('bet-amount');
+
+        $coupon->setBet($bet);
+        $coupon->setUser($user);
+        $coupon->setWager($userBet);
+
+        $em->persist($coupon);
+        $em->flush();
+
+        return $this->redirectToRoute('index');
+
     }
 }
 
