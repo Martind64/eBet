@@ -21,9 +21,6 @@
     background-color: #e65a00;
     text-decoration: none;
 }
-.billedebar {
-
-}
 img.logo {
     display: block;
     margin-left: auto;
@@ -41,7 +38,7 @@ img.logo {
             margin-left: 470px;
         }
 
-        #hvid {
+        #white {
             color: white;
 
         }
@@ -72,3 +69,29 @@ img.logo {
             border: 1px solid #000000;
         }
 /* Navigations bar */
+#testbaggrund {
+    background-color: #0000F0;
+    margin-top: 2px;
+    height: 60px;
+    width: 280px;
+}
+#testbaggrund1 {
+    background-color: #0000F0;
+    margin-top: 2px;
+    height: 60px;
+    width: 280px;
+}
+.sidebarbillede {
+    margin-top: 2px;
+    width: 280px;
+    height: 60px;
+}
+#button1 {
+    background:none!important;
+    border:none;
+    padding:0!important;
+    font: inherit;
+    /*border is optional*/
+    border-bottom:1px solid #444;
+    cursor: pointer;
+}

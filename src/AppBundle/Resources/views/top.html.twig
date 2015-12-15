@@ -1,8 +1,14 @@
 <div id="ebet-top">
     <div id="loginbar">
         <div id="login">
+
                 <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
-                <a id="topbar" href="¤">Opret bruger</a>
+                <a id="topbar" href="¤">Create user</a>
+                <button id="button1" class="btn btn-default dropdown-toggle" type="button" data-toggle=""dropdown>
+                    Profile <span class="caret"></span>
+                </button>
+              <!--  <a href="{{ path('fos_user_profile_show') }}" id="topbar">Profile
+                <span class="caret"></span></a> -->
         </div>
     </div>
     <div class="billedebar">
@@ -11,11 +17,11 @@
     <div class="navigationsbar" id="navigationsbar">
         <div id="navibar">
             <ul>
-        <li><a href="{{ path('index') }}" id="hvid">Forside</a></li>
-        <li><a href="{{ path('fos_user_profile_show') }}" id="hvid">Profile</a></li>
-        <li><a href="¤" id="hvid">Test1</a></li>
-        <li><a href="¤" id="hvid">Test2</a></li>
-        <li><a href="¤" id="hvid">DetteERTest3</a></li>
+        <li><a href="{{ path('index') }}" id="white">Home</a></li>
+        <li></li>
+        <li><a href="¤" id="white">Test1</a></li>
+        <li><a href="¤" id="white">Test2</a></li>
+        <li><a href="¤" id="white">DetteERTest3</a></li>
             </ul>
         </div>
     </div>
