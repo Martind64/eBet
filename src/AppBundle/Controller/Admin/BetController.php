@@ -9,6 +9,7 @@ use AppBundle\Form\Type\ResultType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -63,10 +64,11 @@ class BetController extends ControllerBase
 
     }
 
-        /**
-     * @Route("/result/{bet}", name="update-result")
+    /**
+     * @Route("/update/{bet}", name="update-result")
+     * @Template()
      */
-    public function updateResult(Request $request, Bet $bet)
+    public function updateResultAction(Request $request, Bet $bet)
     {
         $form = $this->createForm(new ResultType(), $bet);
 
@@ -77,10 +79,13 @@ class BetController extends ControllerBase
 
             if($form->isValid())
             {
-
-
+                return new Response('form was valid');
             }
         }
+
+        return[
+            'form' => $form->createView()
+        ];
     }
 
 

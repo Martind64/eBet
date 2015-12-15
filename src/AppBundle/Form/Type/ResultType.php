@@ -11,10 +11,10 @@ class ResultType extends AbstractType
     {
         $builder
             ->add('result','choice', [
-                'choice' => ['1', '2'],
-            'multiple' => false,
-            'expanded' => false,
-            'label' => 'Winner',
+                'choices' => ['1' => '1', '2' => '2'],
+                'multiple' => false,
+                'expanded' => false,
+                'label' => 'Winner',
             ]);
     }
 

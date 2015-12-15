@@ -15,7 +15,7 @@
                 <th>status</th>
             </tr>
             {% for b in bets %}
-                <tr onclick="document.location = '{{ path('bet', {'bet': b.id}) }}'">
+                <tr onclick="document.location = '{{ path('update-result', {'bet': b.id}) }}'">
                     <td>{{ b.homeOdds}}</td>
                     <td>{{ b.awayOdds}}</td>
                     <td>{{ b.homeTeam.name}}</td>
