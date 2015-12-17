@@ -1,26 +1,29 @@
 .table td {
     cursor: pointer;
 }
-
-.navbar{
-}
 #loginbar {
-    text-align: right;
     background-color: #ff741a;
-}
-#login {
-    margin-right: 477px;
 }
 #topbar {
     color: white;
     text-decoration: none;"
-    margin: 10px;
-    padding: 1px 3px;
+margin: 10px;
 }
+
 #topbar:hover {
     background-color: #e65a00;
     text-decoration: none;
 }
+#LCU {
+    text-align: right;
+}
+#LCU1 {
+    text-align: right;
+}
+#profil {
+    text-align: left;
+}
+/* Logo - midten af topbaren*/
 img.logo {
     display: block;
     margin-left: auto;
@@ -28,47 +31,40 @@ img.logo {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+/* logo */
 /* Navigations bar */
-#navigationsbar {
+#navigationbar {
     text-align: left;
     background-color: #4d94ff;
 }
-
-        #navibar {
-            margin-left: 470px;
-        }
-
-        #white {
-            color: white;
-
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        li {
-            float: left;
-        }
-
-        li a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 8px 10px;
-            text-decoration: none;
-            font-size: 20px;
-            border: 1px solid #4d94ff;
-        }
-
-        li a:hover {
-            background-color: #3384ff;
-            text-decoration: none;
-            border: 1px solid #000000;
-        }
+#white {
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.navibar1 {
+    float: left;
+}
+.navibar1 a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid #4d94ff;
+}
+.navibar1 a:hover {
+    background-color: #3384ff;
+    text-decoration: none;
+    border: 1px solid #000000;
+}
 /* Navigations bar */
+/*Left sidebar*/
 #testbaggrund {
     background-color: #0000F0;
     margin-top: 2px;
@@ -89,9 +85,24 @@ img.logo {
 #button1 {
     background:none!important;
     border:none;
-    padding:0!important;
+    padding: 0!important;
     font: inherit;
-    /*border is optional*/
-    border-bottom:1px solid #444;
-    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
 }
+/*Left sidebar*/
+/*Footer*/
+#Footerdiv {
+}
+#Footercenter {
+    text-align: left;
+}
+#Footerleft {
+    text-align: left;
+}
+#Footerright {
+    text-align: left;
+}
+
+/*Footer*/
