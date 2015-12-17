@@ -142,4 +142,62 @@ class Coupon {
     {
         return $this->user;
     }
+    /**
+     * @var string
+     */
+    private $team;
+
+    /**
+     * @var string
+     */
+    private $odds;
+
+
+    /**
+     * Set team
+     *
+     * @param string $team
+     *
+     * @return Coupon
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return string
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * Set odds
+     *
+     * @param string $odds
+     *
+     * @return Coupon
+     */
+    public function setOdds($odds)
+    {
+        $this->odds = $odds;
+
+        return $this;
+    }
+
+    /**
+     * Get odds
+     *
+     * @return string
+     */
+    public function getOdds()
+    {
+        return $this->odds;
+    }
 }

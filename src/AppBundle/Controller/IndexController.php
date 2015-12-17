@@ -57,7 +57,6 @@ class IndexController extends ControllerBase
         $em->flush();
 
         return $this->redirectToRoute('index');
-
     }
 }
 
