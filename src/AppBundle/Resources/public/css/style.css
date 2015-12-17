@@ -1,3 +1,6 @@
+body {
+    background-color: red;
+}
 .table td {
     cursor: pointer;
 }
@@ -106,3 +109,10 @@ ul {
 }
 
 /*Footer*/
+.footer {
+    background: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
