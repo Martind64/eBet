@@ -19,8 +19,8 @@ AppBundle\Entity\Bet:
             type: integer
             length: 2
         result:
-            type: integer
-            length: 2
+            type: string
+            length: 255
             nullable: true
         homeOdds:
             type: decimal
