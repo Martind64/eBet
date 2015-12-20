@@ -7,10 +7,21 @@ use DateTime;
 
 class Team {
 
+
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
+    }
+
     /**
      * @var integer
      */
     private $id;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdDatetime;
 
     /**
      * @var string
@@ -21,17 +32,6 @@ class Team {
      * @var string
      */
     private $logo;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdDatetime;
-
-
-    public function __construct()
-    {
-        $this->createdDatetime = new DateTime('now');
-    }
 
     /**
      * Get id
@@ -48,7 +48,7 @@ class Team {
      *
      * @param \DateTime $createdDatetime
      *
-     * @return team
+     * @return Team
      */
     public function setCreatedDatetime($createdDatetime)
     {
@@ -114,4 +114,5 @@ class Team {
     {
         return $this->logo;
     }
+
 }
