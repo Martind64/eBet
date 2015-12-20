@@ -47,20 +47,41 @@ class IndexController extends ControllerBase
         $coupon = new Coupon();
         $bet = $em->getRepository(Bet::class)->find($betId);
 
-        $userBet = $request->request->get('bet-amount');
-        $team = $request->request->get('bet-team');
-        $odds = $request->request->get('bet-odds');
+        if ($request->request->has('homeButton'))
+        {
+            $userBet = $request->request->get('bet-amount');
+            $team = $request->request->get('bet-hometeam');
+            $odds = $request->request->get('bet-homeodds');
 
-        $coupon
-            ->setBet($bet)
-            ->setUser($user)
-            ->setWager($userBet)
-            ->setOdds($odds)
-            ->setTeam($team);
+            $coupon
+                ->setBet($bet)
+                ->setUser($user)
+                ->setWager($userBet)
+                ->setOdds($odds)
+                ->setTeam($team);
 
 
-        $em->persist($coupon);
-        $em->flush();
+            $em->persist($coupon);
+            $em->flush();
+        }
+        if ($request->request->has('awayButton'))
+        {
+            $userBet = $request->request->get('bet-amount');
+            $team = $request->request->get('bet-awayteam');
+            $odds = $request->request->get('bet-awayodds');
+
+            $coupon
+                ->setBet($bet)
+                ->setUser($user)
+                ->setWager($userBet)
+                ->setOdds($odds)
+                ->setTeam($team);
+
+
+            $em->persist($coupon);
+            $em->flush();
+        }
+
 
         return $this->redirectToRoute('index');
     }
