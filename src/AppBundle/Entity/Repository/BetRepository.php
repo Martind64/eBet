@@ -34,4 +34,20 @@ class BetRepository extends EntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    public function findTeams($bet)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $qb->select('b')
+            ->from('AppBundle:Bet', 'b')
+            ->andWhere('b.id = :bet')
+            ->setParameter('bet', $bet)
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+
+
 }

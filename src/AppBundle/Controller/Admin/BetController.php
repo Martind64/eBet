@@ -70,22 +70,37 @@ class BetController extends ControllerBase
      */
     public function updateResultAction(Request $request, Bet $bet)
     {
-        $form = $this->createForm(new ResultType(), $bet);
-
-
-        if($request->getMethod() == 'POST')
-        {
-            $form->handleRequest($request);
-
-            if($form->isValid())
-            {
-                return new Response('form was valid');
-            }
-        }
+        $bets = $this->getEM()->getRepository('AppBundle:Bet')->findTeams($bet);
 
         return[
-            'form' => $form->createView()
+            'bets' => $bets
         ];
+    }
+
+    /**
+     * @Route("/result/{bet}",name="result")
+     */
+    public function withdrawAction(Request $request, Bet $bet)
+    {
+        $em = $this->getEm();
+        $result = $request->request->get('teamResult');
+
+        $b = $em->getRepository('AppBundle:Bet')
+            ->findOneBy(array(
+                'id'   => $bet,
+            ));
+
+
+
+            $b
+                ->setResult($result)
+                ->setStatus(Bet::STATUS_CLOSED)
+                ->setClosedDatetime(new \DateTime('now'));
+
+        $em->persist($b);
+        $em->flush($b);
+
+        return $this->redirectToRoute('show-result');
     }
 
 
