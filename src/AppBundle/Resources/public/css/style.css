@@ -1,16 +1,30 @@
 body {
-    background-color: red;
+    height: 100%;
+    background-image: url("../img/ebet-background2.jpg");
+}
+/*Footer*/
+.footer {
+    height: 400px;
+    background: rgba(0, 0, 0, 0.85);
+    display: block;
+    clear: both;
+}
+/*table*/
+.table {
 }
 .table td {
     cursor: pointer;
 }
+/*well*/
+.well {
+}
 #loginbar {
-    background-color: #ff741a;
+    background: rgba(0, 0, 0, 0.85);
 }
 #topbar {
     color: white;
     text-decoration: none;"
-margin: 10px;
+    margin: 10px;
 }
 
 #topbar:hover {
@@ -80,7 +94,7 @@ ul {
     height: 60px;
     width: 280px;
 }
-.sidebarbillede {
+.ebet-nav {
     margin-top: 2px;
     width: 280px;
     height: 60px;
@@ -108,10 +122,4 @@ ul {
     text-align: left;
 }
 
-/*Footer*/
-.footer {
-    background: rgba(0, 0, 0, 0.85);
-    width: 100%;
-    bottom: 0;
-    height: 200px;
-}
+
