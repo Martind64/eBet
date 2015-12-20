@@ -48,10 +48,16 @@ class IndexController extends ControllerBase
         $bet = $em->getRepository(Bet::class)->find($betId);
 
         $userBet = $request->request->get('bet-amount');
+        $team = $request->request->get('bet-team');
+        $odds = $request->request->get('bet-odds');
 
-        $coupon->setBet($bet);
-        $coupon->setUser($user);
-        $coupon->setWager($userBet);
+        $coupon
+            ->setBet($bet)
+            ->setUser($user)
+            ->setWager($userBet)
+            ->setOdds($odds)
+            ->setTeam($team);
+
 
         $em->persist($coupon);
         $em->flush();
