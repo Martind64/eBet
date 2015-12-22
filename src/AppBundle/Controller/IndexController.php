@@ -61,7 +61,7 @@ class IndexController extends ControllerBase
                 ->setOdds($odds)
                 ->setTeam($team);
 
-            if ($userBet < $user->getBalance()) {
+            if ($userBet <= $user->getBalance()) {
                 $user->setBalance($user->getBalance() - $userBet);
                 $em->persist($user);
             }
@@ -85,7 +85,7 @@ class IndexController extends ControllerBase
                 ->setOdds($odds)
                 ->setTeam($team);
 
-            if ($userBet < $user->getBalance()) {
+            if ($userBet <= $user->getBalance()) {
                 $user->setBalance($user->getBalance() - $userBet);
                 $em->persist($user);
             }
