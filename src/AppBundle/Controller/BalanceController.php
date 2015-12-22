@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use AppBundle\Controller\ControllerBase;
 use AppBundle\Entity\User;
-use AppBundle\Form\Type\FundsType;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -56,7 +55,7 @@ class BalanceController extends ControllerBase
     public function withdrawAction(Request $request)
     {
         $em = $this->getEm();
-        $user = $this->getUser();
+        $user = $this->getLoggedInUser();
 
         $wbalance = $request->request->get('withdraw-balance');
         $user

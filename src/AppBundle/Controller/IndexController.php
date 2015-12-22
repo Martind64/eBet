@@ -37,7 +37,7 @@ class IndexController extends ControllerBase
      */
     public function createCouponAction(Request $request, $betId)
     {
-        $user = $this->getUser();
+        $user = $this->getLoggedInUser();
         if(!$user)
         {
             return $this->redirectToRoute('fos_user_security_login');
@@ -53,6 +53,7 @@ class IndexController extends ControllerBase
             $team = $request->request->get('bet-hometeam');
             $odds = $request->request->get('bet-homeodds');
 
+
             $coupon
                 ->setBet($bet)
                 ->setUser($user)
@@ -60,6 +61,13 @@ class IndexController extends ControllerBase
                 ->setOdds($odds)
                 ->setTeam($team);
 
+            if ($userBet < $user->getBalance()) {
+                $user->setBalance($user->getBalance() - $userBet);
+                $em->persist($user);
+            }
+            else {
+                throw new \Exception('You don´t have enough money on account');
+            }
 
             $em->persist($coupon);
             $em->flush();
@@ -77,8 +85,16 @@ class IndexController extends ControllerBase
                 ->setOdds($odds)
                 ->setTeam($team);
 
+            if ($userBet < $user->getBalance()) {
+                $user->setBalance($user->getBalance() - $userBet);
+                $em->persist($user);
+            }
+            else {
+                throw new \Exception('You don´t have enough money on account');
+            }
 
             $em->persist($coupon);
+
             $em->flush();
         }
 

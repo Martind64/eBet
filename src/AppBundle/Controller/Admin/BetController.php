@@ -80,7 +80,7 @@ class BetController extends ControllerBase
     /**
      * @Route("/result/{bet}",name="result")
      */
-    public function withdrawAction(Request $request, Bet $bet)
+    public function resultAction(Request $request, Bet $bet)
     {
         $em = $this->getEm();
         $result = $request->request->get('teamResult');
@@ -89,7 +89,6 @@ class BetController extends ControllerBase
             ->findOneBy(array(
                 'id'   => $bet,
             ));
-
 
 
             $b
