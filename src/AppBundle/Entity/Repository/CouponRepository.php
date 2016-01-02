@@ -14,10 +14,10 @@ class CouponRepository extends EntityRepository
             ->from('AppBundle:Coupon', 'c')
             ->join('c.bet', 'g')
             ->where('c.bet = g.id')
-            ->andWhere('c.bet = :bet')
-            ->setParameter('bet', $bet)
-            ->andWhere('c.team = :team')
-            ->setParameter('team', $team);
+            ->andWhere('c.bet = :betid')
+            ->setParameter('betid', $bet)
+            ->andWhere('c.team = :result')
+            ->setParameter('result', $team);
 
         return $query->getQuery()->getResult();
     }
