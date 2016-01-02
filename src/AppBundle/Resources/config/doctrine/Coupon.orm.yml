@@ -1,6 +1,7 @@
 AppBundle\Entity\Coupon:
     type: entity
     table: coupons
+    repositoryClass: AppBundle\Entity\Repository\CouponRepository
     id:
         id:
             type: integer
