@@ -108,10 +108,10 @@ class BetController extends ControllerBase
             $em->flush($bc);
         }
 
-            $b
-                ->setResult($result)
-                ->setStatus(Bet::STATUS_CLOSED)
-                ->setClosedDatetime(new \DateTime('now'));
+        $b
+            ->setResult($result)
+            ->setStatus(Bet::STATUS_CLOSED)
+            ->setClosedDatetime(new \DateTime('now'));
 
         $em->persist($b);
         $em->flush($b);
