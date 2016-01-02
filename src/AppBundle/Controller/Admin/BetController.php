@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Controller\ControllerBase;
 use AppBundle\Entity\Bet;
+use AppBundle\Entity\Coupon;
 use AppBundle\Form\Type\BetType;
 use AppBundle\Form\Type\ResultType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -56,7 +57,7 @@ class BetController extends ControllerBase
      */
     public function showResultAction()
     {
-        $bets = $this->getEM()->getRepository('AppBundle:Bet')->findAll();
+        $bets = $this->getEM()->getRepository('AppBundle:Bet')->findActiveBets();
 
         return [
             'bets' => $bets
@@ -90,6 +91,22 @@ class BetController extends ControllerBase
                 'id'   => $bet,
             ));
 
+        /* @var Coupon $betcoupon */
+        $betcoupon = $em->getRepository('AppBundle:Coupon')->findBets($bet, $result);
+
+        foreach($betcoupon as $bc) /** @var Coupon $bc */
+        {
+            $balance = $bc->getUser()->getBalance();
+            $wager = $bc->getWager();
+            $odds = $bc->getOdds();
+            $won = $wager * $odds;
+            $total = $balance + $won;
+            $bc->getUser()->setBalance($total);
+
+            $bc = $bc->getUser()->setBalance($total);
+            $em->persist($bc);
+            $em->flush($bc);
+        }
 
             $b
                 ->setResult($result)
