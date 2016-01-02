@@ -29,11 +29,11 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="col-sm-12">
-                                                    <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
-                                                </div>
                                                 <form action="{{ path('create-coupon', {'betId': b.Id}) }}" method="post" class="form-horizontal">
                                                     <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
+                                                        </div>
                                                         <div class="col-sm-12">
                                                             <label class="control-label">Odds {{ b.homeOdds }}</label>
                                                         </div>
