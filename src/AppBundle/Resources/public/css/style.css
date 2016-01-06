@@ -1,6 +1,5 @@
 body {
     height: 100%;
-    background-image: url("../img/ebet-background2.jpg");
 }
 /*Footer*/
 .footer {
@@ -42,6 +41,9 @@ body {
     text-align: left;
 }
 /* Logo - midten af topbaren*/
+#ebet-top .logo {
+    background: white;
+}
 img.logo {
     display: block;
     margin-left: auto;

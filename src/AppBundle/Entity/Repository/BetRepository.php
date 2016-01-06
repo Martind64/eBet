@@ -15,6 +15,7 @@ class BetRepository extends EntityRepository
             ->from('AppBundle:Bet', 'b')
             ->join('b.game', 'g')
             ->where('b.game = g.id')
+            ->andWhere('b.status = 1')
             ->andWhere('g.name = :Dota2')
             ->setParameter('Dota2', 'Dota2');
 
@@ -29,6 +30,7 @@ class BetRepository extends EntityRepository
             ->from('AppBundle:Bet', 'b')
             ->join('b.game', 'g')
             ->where('b.game = g.id')
+            ->andWhere('b.status = 1')
             ->andWhere('g.name = :csgo')
             ->setParameter('csgo', 'csgo');
 

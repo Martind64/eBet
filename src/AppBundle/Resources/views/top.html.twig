@@ -1,27 +1,29 @@
 <div id="ebet-top">
-    <div id="loginbar" class="col-xs-12">
-        <div class="col-xs-7"></div>
-        <div id="login" class="col-xs-3">
-            <div class="col-xs-5"></div>
-            <div class="col-xs-2" id="LCU">
-                <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
+    <div class="row">
+        <div id="loginbar" class="col-xs-12">
+            <div class="col-xs-7"></div>
+            <div id="login" class="col-xs-3">
+                <div class="col-xs-5"></div>
+                <div class="col-xs-2" id="LCU">
+                    <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
+                </div>
+                <div class="col-xs-3" id="LCU1">
+                    <a id="topbar" href="{{ path('fos_user_registration_register') }}">Create user</a>
+                </div>
+                <div class="col-xs-2" id="Profile">
+                    <button id="button1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true">Profile <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+                        <li><a href="�">Your matches</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2"></div>
             </div>
-            <div class="col-xs-3" id="LCU1">
-                <a id="topbar" href="�">Create user</a>
-            </div>
-            <div class="col-xs-2" id="Profile">
-                <button id="button1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="true">Profile <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="�">Profil</a></li>
-                    <li><a href="�">Your matches</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-2"></div>
         </div>
     </div>
     <div class="logo">
-        <img class="logo" src="{{ asset('bundles/app/img/ebet-logo.png') }}"/>
+        <img class="logos" src="{{ asset('bundles/app/img/logo-ebet.png') }}"/>
     </div>
 </div>
