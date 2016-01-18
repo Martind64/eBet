@@ -1,8 +1,22 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 
+{% block index %}
 
-    {% block fos_user_content %}
-        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
-    {% endblock fos_user_content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1">
+                    {% block fos_user_content %}
+                        {% block left %}{% endblock %}
+                        {% block right %}{% endblock %}
+                        <div class="container">
+                            <div class="col-lg-2">
+                                {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+                            </div>
+                        </div>
+                    {% endblock fos_user_content %}
+                </div>
+            </div>
+        </div>
 
+{% endblock %}

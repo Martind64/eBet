@@ -9,6 +9,7 @@ class GameControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
+
         $crawler = $client->request('GET', '/');
 
 
