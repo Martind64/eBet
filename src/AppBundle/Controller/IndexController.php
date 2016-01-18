@@ -72,6 +72,7 @@ class IndexController extends ControllerBase
             $em->persist($coupon);
             $em->flush();
         }
+
         if ($request->request->has('awayButton'))
         {
             $userBet = $request->request->get('bet-amount');
