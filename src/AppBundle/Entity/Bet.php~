@@ -11,6 +11,11 @@ class Bet {
     const STATUS_PAUSED = 2;
     const STATUS_CLOSED= 3;
 
+    public function __construct()
+    {
+        $this->createdDatetime = new DateTime('now');
+    }
+
     /**
      * @var integer
      */
@@ -22,6 +27,11 @@ class Bet {
     private $createdDatetime;
 
     /**
+     * @var \DateTime
+     */
+    private $betTime;
+
+    /**
      * @var integer
      */
     private $status;
@@ -30,6 +40,16 @@ class Bet {
      * @var integer
      */
     private $result;
+
+    /**
+     * @var string
+     */
+    private $homeOdds;
+
+    /**
+     * @var string
+     */
+    private $awayOdds;
 
     /**
      * @var \DateTime
@@ -47,29 +67,10 @@ class Bet {
     private $awayTeam;
 
     /**
-     * @var integer
-     */
-    private $homeOdds;
-
-    /**
-     * @var integer
-     */
-    private $awayOdds;
-
-    /**
-     * @var \DateTime
-     */
-    private $betTime;
-
-    /**
      * @var \AppBundle\Entity\Game
      */
     private $game;
 
-    public function __construct()
-    {
-        $this->createdDatetime = new DateTime('now');
-    }
 
     /**
      * Get id
@@ -86,7 +87,7 @@ class Bet {
      *
      * @param \DateTime $createdDatetime
      *
-     * @return bet
+     * @return Bet
      */
     public function setCreatedDatetime($createdDatetime)
     {
@@ -106,11 +107,35 @@ class Bet {
     }
 
     /**
+     * Set betTime
+     *
+     * @param \DateTime $betTime
+     *
+     * @return Bet
+     */
+    public function setBetTime($betTime)
+    {
+        $this->betTime = $betTime;
+
+        return $this;
+    }
+
+    /**
+     * Get betTime
+     *
+     * @return \DateTime
+     */
+    public function getBetTime()
+    {
+        return $this->betTime;
+    }
+
+    /**
      * Set status
      *
      * @param integer $status
      *
-     * @return bet
+     * @return Bet
      */
     public function setStatus($status)
     {
@@ -154,6 +179,54 @@ class Bet {
     }
 
     /**
+     * Set homeOdds
+     *
+     * @param string $homeOdds
+     *
+     * @return Bet
+     */
+    public function setHomeOdds($homeOdds)
+    {
+        $this->homeOdds = $homeOdds;
+
+        return $this;
+    }
+
+    /**
+     * Get homeOdds
+     *
+     * @return string
+     */
+    public function getHomeOdds()
+    {
+        return $this->homeOdds;
+    }
+
+    /**
+     * Set awayOdds
+     *
+     * @param string $awayOdds
+     *
+     * @return Bet
+     */
+    public function setAwayOdds($awayOdds)
+    {
+        $this->awayOdds = $awayOdds;
+
+        return $this;
+    }
+
+    /**
+     * Get awayOdds
+     *
+     * @return string
+     */
+    public function getAwayOdds()
+    {
+        return $this->awayOdds;
+    }
+
+    /**
      * Set closedDatetime
      *
      * @param \DateTime $closedDatetime
@@ -180,11 +253,11 @@ class Bet {
     /**
      * Set homeTeam
      *
-     * @param Team $homeTeam
+     * @param \AppBundle\Entity\Team $homeTeam
      *
      * @return Bet
      */
-    public function setHomeTeam(Team $homeTeam = null)
+    public function setHomeTeam(\AppBundle\Entity\Team $homeTeam = null)
     {
         $this->homeTeam = $homeTeam;
 
@@ -194,7 +267,7 @@ class Bet {
     /**
      * Get homeTeam
      *
-     * @return Team
+     * @return \AppBundle\Entity\Team
      */
     public function getHomeTeam()
     {
@@ -204,11 +277,11 @@ class Bet {
     /**
      * Set awayTeam
      *
-     * @param Team $awayTeam
+     * @param \AppBundle\Entity\Team $awayTeam
      *
      * @return Bet
      */
-    public function setAwayTeam(Team $awayTeam = null)
+    public function setAwayTeam(\AppBundle\Entity\Team $awayTeam = null)
     {
         $this->awayTeam = $awayTeam;
 
@@ -218,7 +291,7 @@ class Bet {
     /**
      * Get awayTeam
      *
-     * @return Team
+     * @return \AppBundle\Entity\Team
      */
     public function getAwayTeam()
     {
@@ -228,11 +301,11 @@ class Bet {
     /**
      * Set game
      *
-     * @param Game $game
+     * @param \AppBundle\Entity\Game $game
      *
      * @return Bet
      */
-    public function setGame(Game $game = null)
+    public function setGame(\AppBundle\Entity\Game $game = null)
     {
         $this->game = $game;
 
@@ -242,82 +315,10 @@ class Bet {
     /**
      * Get game
      *
-     * @return Game
+     * @return \AppBundle\Entity\Game
      */
     public function getGame()
     {
         return $this->game;
-    }
-
-    /**
-     * Set homeOdds
-     *
-     * @param integer $homeOdds
-     *
-     * @return Bet
-     */
-    public function setHomeOdds($homeOdds)
-    {
-        $this->homeOdds = $homeOdds;
-
-        return $this;
-    }
-
-    /**
-     * Get homeOdds
-     *
-     * @return integer
-     */
-    public function getHomeOdds()
-    {
-        return $this->homeOdds;
-    }
-
-    /**
-     * Set awayOdds
-     *
-     * @param integer $awayOdds
-     *
-     * @return Bet
-     */
-    public function setAwayOdds($awayOdds)
-    {
-        $this->awayOdds = $awayOdds;
-
-        return $this;
-    }
-
-    /**
-     * Get awayOdds
-     *
-     * @return integer
-     */
-    public function getAwayOdds()
-    {
-        return $this->awayOdds;
-    }
-
-    /**
-     * Set betTime
-     *
-     * @param \DateTime $betTime
-     *
-     * @return Bet
-     */
-    public function setBetTime($betTime)
-    {
-        $this->betTime = $betTime;
-
-        return $this;
-    }
-
-    /**
-     * Get betTime
-     *
-     * @return \DateTime
-     */
-    public function getBetTime()
-    {
-        return $this->betTime;
     }
 }
