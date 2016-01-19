@@ -53,6 +53,9 @@ thead > tr:nth-child(1) > th:nth-child(1) {
     border-top: 2px solid #993030;
     border-bottom: 2px solid #993030;
 }
+.logos {
+    background-image: url("../img/ebet-header.png");
+}
 .logos img {
     margin-left: 15%;
     margin-top: 10px;
