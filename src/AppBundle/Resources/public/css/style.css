@@ -6,10 +6,14 @@ body {
 h3 {
     color: white;
 }
-.design {
-    background-color: #e3e3e3;
+a:hover{
+    color:#993030;
+    text-decoration:none;
 }
-
+#user-panel {
+    padding-top: 10px;
+    background: black;
+}
 .white {
     color: white;
 }
@@ -27,6 +31,10 @@ h3 {
 .table td {
     cursor: pointer;
 }
+thead > tr:nth-child(1) > th:nth-child(1) {
+    background-color: #993030;
+    color: white;
+}
 #ebet-top #loginbar {
     background: black;
 }
@@ -34,7 +42,11 @@ h3 {
     padding-left: 10px;
     padding-right: 10px;
 }
-
+.design {
+    min-height: 800px;
+    background-color: #e3e3e3;
+    padding-top: 50px;
+}
 /* Logo - midten af topbaren*/
 #ebet-top .logo {
     background: white;

@@ -4,16 +4,18 @@
 {% block index %}
 
     <div class="well">
-        <table class="table table-hover" id="index">
+        <table class="table table-bordered" id="index">
+            <thead>
             <tc><h2>All bets</h2></tc>
             <tr>
-                <th>Dota2</th>
+                <th colspan="4">Dota2</th>
             </tr>
             <tr>
                 <th>Time</th>
                 <th>Match</th>
-                <th>Odds</th>
+                <th colspan="2">Odds</th>
             </tr>
+            </thead>
             {% for b in dotaBets %}
                 <tr>
                     <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
@@ -24,7 +26,8 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Place a bet</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">Place your bet</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
@@ -38,7 +41,10 @@
                                                             <label class="control-label">Odds {{ b.homeOdds }}</label>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                            <div class="input-group">
+                                                                <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                                <div class="input-group-addon">$</div>
+                                                            </div>
                                                         </div>
                                                         <div class="col-sm-6 hidden">
                                                             <input name="bet-homeodds" type="text" class="form-control col-sm-10" value="{{ b.homeOdds }}">
@@ -57,7 +63,6 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -69,21 +74,25 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Place a bet</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">Place your bet</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="col-sm-12">
-                                                    <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
-                                                </div>
                                                 <form action="{{ path('create-coupon', {'betId': b.Id}) }}" method="post" class="form-horizontal">
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <label class="control-label">Odds {{ b.awayOdds }}</label>
+                                                            <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">Odds {{ b.homeOdds }}</label>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                            <div class="input-group">
+                                                                <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                                <div class="input-group-addon">$</div>
+                                                            </div>
                                                         </div>
                                                         <div class="col-sm-6 hidden">
                                                             <input name="bet-awayodds" type="text" class="form-control col-sm-10" value="{{ b.awayOdds }}">
@@ -102,7 +111,6 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -110,9 +118,11 @@
                     </td>
                 </tr>
             {% endfor %}
+            <thead>
             <tr>
-                <th>CSGO</th>
+                <th colspan="4">CSGO</th>
             </tr>
+            </thead>
             {% for b in csgoBets %}
                     <tr>
                         <td>{{ b.betTime|date('d-m-y H:i:s')}}</td>
@@ -123,21 +133,25 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h3 class="modal-title">Place a bet</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Place your bet</h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="col-sm-12">
-                                                        <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
-                                                    </div>
                                                     <form action="{{ path('create-coupon', {'betId': b.Id}) }}" method="post" class="form-horizontal">
                                                         <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
+                                                            </div>
                                                             <div class="col-sm-12">
                                                                 <label class="control-label">Odds {{ b.homeOdds }}</label>
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                                <div class="input-group">
+                                                                    <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                                    <div class="input-group-addon">$</div>
+                                                                </div>
                                                             </div>
                                                             <div class="col-sm-6 hidden">
                                                                 <input name="bet-odds" type="text" class="form-control col-sm-10" value="{{ b.homeOdds }}">
@@ -156,7 +170,6 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -168,21 +181,25 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h3 class="modal-title">Place a bet</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Place your bet</h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="col-sm-12">
-                                                        <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
-                                                    </div>
                                                     <form action="{{ path('create-coupon', {'betId': b.Id}) }}" method="post" class="form-horizontal">
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
-                                                                <label class="control-label">Odds {{ b.awayOdds }}</label>
+                                                                <label class="control-label">{{ b.homeTeam.name }} - {{ b.awayTeam.name}}</label>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <label class="control-label">Odds {{ b.homeOdds }}</label>
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                                <div class="input-group">
+                                                                    <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
+                                                                    <div class="input-group-addon">$</div>
+                                                                </div>
                                                             </div>
                                                             <div class="col-sm-6 hidden">
                                                                 <input name="bet-odds" type="text" class="form-control col-sm-10" value="{{ b.awayOdds }}">
@@ -201,7 +218,6 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                                         </div>
                                     </div>
                                 </div>

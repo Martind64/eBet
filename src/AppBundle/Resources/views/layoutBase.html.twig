@@ -5,15 +5,15 @@
 {% block body %}
     <div class="container design">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 ebet-left">
                 {% block left %}
                     {% include '@App/left.html.twig' %}
                 {% endblock %}
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 ebet-content">
                 {% block index %}{% endblock %}
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 ebet-right">
                 {% block right %}
                     {% include '@App/right.html.twig' %}
                 {% endblock %}

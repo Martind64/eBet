@@ -1,29 +1,37 @@
 <div id="ebet-top">
     <div id="loginbar">
-        <div class="container">
-                <div class="pull-right">
-                    <div class="row">
-                    {% if is_granted("ROLE_USER") %}
-                        <div class="col-md-7 loginbar-margin">
-                            <p class="white">{{ user.balance }} <span class="glyphicon glyphicon-euro white"></span></p>
-                        </div>
-                        <div class="col-md-5 loginbar-margin">
-                            <button id="button1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="true">Profile<span class="caret"></span>
-                            </button>
+        <div id="user-panel">
+            <div class="container">
+                    <div class="pull-right">
+                        <div class="row">
+                        {% if is_granted("ROLE_USER") %}
+                            <div class="col-md-7 loginbar-margin">
+                                <p class="white">{{ user.balance }} <span class="glyphicon glyphicon-euro white"></span></p>
+                            </div>
+                            <div class="col-md-5 loginbar-margin">
+                                <button id="button1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="true">Profile<span class="caret"></span>
+                                </button>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
-                            <li><a href="{{ path('show-balance') }}">Balance</a></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                        </ul>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                                <li><a href="{{ path('show-balance') }}">Balance</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                            </ul>
+                            </div>
                         </div>
+                        {% else %}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a class="white" href="{{ path('fos_user_security_login') }}">Login</a>
+                                </div>
+                                <div class="col-md-8">
+                                    <a class="white" href="{{ path('fos_user_registration_register') }}">Create user</a>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
-                    <a id="topbar" href="{{ path('fos_user_registration_register') }}">Create user</a>
-                    {% endif %}
-                </div>
+            </div>
         </div>
     </div>
     <div class="logo">
