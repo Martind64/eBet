@@ -23,11 +23,13 @@ class IndexController extends ControllerBase
         $betRepo = $this->getEM()->getRepository('AppBundle:Bet');
         $dotaBets = $betRepo->findDota2Matches();
         $csgoBets = $betRepo->findCsGoMatches();
+        $user = $this->getLoggedInUser();
 
 
         return [
             'dotaBets' => $dotaBets,
             'csgoBets' => $csgoBets,
+            'user' => $user,
         ];
     }
 

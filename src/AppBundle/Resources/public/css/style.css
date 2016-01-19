@@ -9,6 +9,9 @@ h3 {
 .design {
     background-color: #e3e3e3;
 }
+p {
+    color: white;
+}
 /*Footer*/
 .footer {
     height: 400px;
@@ -22,31 +25,8 @@ h3 {
 .table td {
     cursor: pointer;
 }
-/*well*/
-.well {
-}
-#loginbar {
-    background: rgba(0, 0, 0, 0.85);
-}
-/*top*/
-#topbar {
-    color: white;
-    text-decoration: none;"
-margin: 10px;
-}
-
-#topbar:hover {
-    background-color: #e65a00;
-    text-decoration: none;
-}
-#LCU {
-    text-align: right;
-}
-#LCU1 {
-    text-align: right;
-}
-#profil {
-    text-align: left;
+#ebet-top #loginbar {
+    background: black;
 }
 /* Logo - midten af topbaren*/
 #ebet-top .logo {
@@ -76,24 +56,7 @@ ul {
     padding: 0;
     overflow: hidden;
 }
-.navibar1 {
-    float: left;
-}
-.navibar1 a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 8px 10px;
-    text-decoration: none;
-    font-size: 20px;
-    border: 1px solid #4d94ff;
-}
-.navibar1 a:hover {
-    background-color: #3384ff;
-    text-decoration: none;
-    border: 1px solid #000000;
-}
-/* Navigations bar */
+
 /*Left sidebar*/
 #testbaggrund {
     background-color: #0000F0;
