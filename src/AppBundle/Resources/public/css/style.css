@@ -88,5 +88,13 @@ thead > tr:nth-child(1) > th:nth-child(1) {
 #Footerright {
     text-align: left;
 }
+.menu {
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+#logo-admin {
+    margin-left: 180px;
+}
 
 

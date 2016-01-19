@@ -2,17 +2,19 @@
 
 {% block content %}
     <div class="row">
+        <div class="menu">
+            <div class="col-lg-3 list-group">
+                <a class="list-group-item" href="{{ path('create-bet') }}">Bet</a>
+                <a class="list-group-item" href="{{ path('create-game') }}">Game</a>
+                <a class="list-group-item" href="{{ path('create-team') }}">Team</a>
+                <a class="list-group-item" href="{{ path('show-result') }}">Result</a>
+            </div>
 
-        <div class="col-lg-3 list-group">
-            <a class="list-group-item" href="{{ path('create-bet') }}">Bet</a>
-            <a class="list-group-item" href="{{ path('create-game') }}">Game</a>
-            <a class="list-group-item" href="{{ path('create-team') }}">Team</a>
-            <a class="list-group-item" href="{{ path('show-result') }}">Result</a>
-        </div>
 
         <div class="col-lg-9" id="form-wrapper">
             {% block rightColumn %}
             {% endblock %}
+        </div>
         </div>
     </div>
 {% endblock %}
