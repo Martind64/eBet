@@ -4,16 +4,10 @@
 {% block index %}
 
     <div class="well">
-        <table class="table table-bordered" id="index">
+        <table class="table table-bordered">
             <thead>
-            <tc><h2>All bets</h2></tc>
             <tr>
-                <th colspan="4">Dota2</th>
-            </tr>
-            <tr>
-                <th>Time</th>
-                <th>Match</th>
-                <th colspan="2">Odds</th>
+                <th colspan="4">DotA 2</th>
             </tr>
             </thead>
             {% for b in dotaBets %}
@@ -43,19 +37,19 @@
                                                         <div class="col-sm-6">
                                                             <div class="input-group">
                                                                 <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
-                                                                <div class="input-group-addon">$</div>
+                                                                <div class="input-group-addon">€</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 hidden">
-                                                            <input name="bet-homeodds" type="text" class="form-control col-sm-10" value="{{ b.homeOdds }}">
+                                                            <input name="bet-odds" type="text" class="form-control col-sm-10" value="{{ b.homeOdds }}">
                                                         </div>
                                                         <div class="col-sm-6 hidden">
-                                                            <input name="bet-hometeam" type="text" class="form-control col-sm-10" value="{{ b.homeTeam.name }}">
+                                                            <input name="bet-team" type="text" class="form-control col-sm-10" value="{{ b.homeTeam.name }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button name="homeButton" type="submit" class="btn-success pull-right btn">Place bet</button>
+                                                            <button type="submit" class="btn-success pull-right btn">Place bet</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -91,19 +85,19 @@
                                                         <div class="col-sm-6">
                                                             <div class="input-group">
                                                                 <input name="bet-amount" type="text" class="form-control col-sm-10" placeholder="Your bet">
-                                                                <div class="input-group-addon">$</div>
+                                                                <div class="input-group-addon">€</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 hidden">
-                                                            <input name="bet-awayodds" type="text" class="form-control col-sm-10" value="{{ b.awayOdds }}">
+                                                            <input name="bet-odds" type="text" class="form-control col-sm-10" value="{{ b.awayOdds }}">
                                                         </div>
                                                         <div class="col-sm-6 hidden">
-                                                            <input name="bet-awayteam" type="text" class="form-control col-sm-10" value="{{ b.awayTeam.name }}">
+                                                            <input name="bet-team" type="text" class="form-control col-sm-10" value="{{ b.awayTeam.name }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button name="awayButton" type="submit" class="btn-success pull-right btn">Place bet</button>
+                                                            <button type="submit" class="btn-success pull-right btn">Place bet</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -118,7 +112,7 @@
                     </td>
                 </tr>
             {% endfor %}
+        </table>
+    </div>
 
-{% endblock %}
-{% block js %}
 {% endblock %}

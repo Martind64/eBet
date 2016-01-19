@@ -42,7 +42,9 @@ class BetController extends ControllerBase
                 $em->persist($bet);
                 $em->flush($bet);
             }
+            return $this->redirectToRoute('admin-index');
         }
+
 
         return [
             'bet' => $bet,

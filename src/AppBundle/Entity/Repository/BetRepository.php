@@ -16,8 +16,8 @@ class BetRepository extends EntityRepository
             ->join('b.game', 'g')
             ->where('b.game = g.id')
             ->andWhere('b.status = 1')
-            ->andWhere('g.name = :Dota2')
-            ->setParameter('Dota2', 'Dota2');
+            ->andWhere('g.name = :dota2')
+            ->setParameter('dota2', 'dota2');
 
         return $query->getQuery()->getResult();
     }
