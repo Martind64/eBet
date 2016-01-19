@@ -10,7 +10,16 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/admin/game/create');
+
+        $form = $crawler->selectButton('submit')->form();
+
+        $form['name'] = 'Hearthstone';
+        $logo['logo'] = 'img';
+
+        $crawler = $client->submit($form);
+
+
 
 
 
