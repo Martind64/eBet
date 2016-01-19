@@ -1,37 +1,35 @@
 <div id="ebet-top">
     <div id="loginbar">
-        <div class="row">
-            <div class="col-xs-7"></div>
-                <div id="login" class="col-xs-3">
-                    <div class="col-xs-5"></div>
+        <div class="container">
+                <div class="pull-right">
+                    <div class="row">
                     {% if is_granted("ROLE_USER") %}
-                        <div class="col-xs-3">
-                            <p>{{ user.balance }} <span class="glyphicon glyphicon-euro"></span></p>
+                        <div class="col-md-7 loginbar-margin">
+                            <p class="white">{{ user.balance }} <span class="glyphicon glyphicon-euro white"></span></p>
                         </div>
-                        <div class="col-xs-2" id="Profile">
+                        <div class="col-md-5 loginbar-margin">
                             <button id="button1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="true">Profile<span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
-                                <li><a href="{{ path('show-balance') }}">Balance</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                            </ul>
-                        </div>
-                    {% else %}
-                            <div class="col-xs-2">
-                                <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
-                            </div>
-                            <div class="col-xs-3">
-                                <a id="topbar" href="{{ path('fos_user_registration_register') }}">Create user</a>
-                            </div>
-                    {% endif %}
 
-                    <div class="col-xs-2"></div>
-            </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                            <li><a href="{{ path('show-balance') }}">Balance</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                    {% else %}
+                    <a id="topbar" href="{{ path('fos_user_security_login') }}">Login</a>
+                    <a id="topbar" href="{{ path('fos_user_registration_register') }}">Create user</a>
+                    {% endif %}
+                </div>
         </div>
     </div>
     <div class="logo">
-        <a href="{{ path('index') }}"><img class="logos" alt="eBetLogo" src="{{ asset('bundles/app/img/logo-ebet.png') }}"/></a>
+        <div class="logos">
+            <a href="{{ path('index') }}"><img alt="eBetLogo" src="{{ asset('bundles/app/img/logo-ebet.png') }}"/></a>
+        </div>
     </div>
 </div>
+
