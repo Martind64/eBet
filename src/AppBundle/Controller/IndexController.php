@@ -70,7 +70,8 @@ class IndexController extends ControllerBase
                 $em->persist($user);
             }
             else {
-                throw new \Exception('You don´t have enough money on account');
+                $this->get('session')->getFlashBag()->add('notice','You don´t have enough money on your account!');
+//                throw new \Exception('You don´t have enough money on account');
             }
 
             $em->persist($coupon);
@@ -95,7 +96,8 @@ class IndexController extends ControllerBase
                 $em->persist($user);
             }
             else {
-                throw new \Exception('You don´t have enough money on account');
+                $this->get('session')->getFlashBag()->add('notice','You don´t have enough money on your account!');
+//                throw new \Exception('You don´t have enough money on your account!');
             }
 
             $em->persist($coupon);
