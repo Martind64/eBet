@@ -21,14 +21,7 @@ class IndexControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
-    public function testInvalidPermission()
-    {
-        $client = $this->createAuthorizedClient();
-        $client->request('GET', '/admin/index');
 
-        $exception = $this->throwException(new AccessDeniedHttpException());
-
-    }
     protected function createAuthorizedClient()
     {
         $client = static::createClient();

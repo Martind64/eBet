@@ -10,19 +10,18 @@ class GameControllerTest extends TypeTestCase
 {
     public function testSubmittedData()
     {
+
         $formData = array(
             'name' => 'CSS',
             'logo' => 'img',
         );
 
         $type = new GameType();
-        $form = $this->factory->create($type);
 
-//        $object = Game::fromArray($formData);
+        $form = $this->factory->create($type);
 
         $form->submit($formData);
         $this->assertTrue($form->isSynchronized());
-//        $this->assertEquals($object, $form->getData());
         $view = $form->createView();
         $children = $view->children;
 
@@ -30,13 +29,6 @@ class GameControllerTest extends TypeTestCase
         {
             $this->assertArrayHasKey($key, $children);
         }
-
-
-
-
-
-
-
 
     }
 }
