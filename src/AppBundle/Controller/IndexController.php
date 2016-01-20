@@ -70,11 +70,13 @@ class IndexController extends ControllerBase
             if ($userBet <= $user->getBalance()) {
                 $user->setBalance($user->getBalance() - $userBet);
                 $em->persist($user);
+                $this->get('session')->getFlashBag()->add('notice','Bet placed!');
             }
             else {
                 $this->get('session')->getFlashBag()->add('notice','You don´t have enough money on your account!');
 //                throw new \Exception('You don´t have enough money on account');
             }
+
 
             $em->persist($coupon);
             $em->flush();
