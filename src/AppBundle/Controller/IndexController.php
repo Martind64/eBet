@@ -24,6 +24,7 @@ class IndexController extends ControllerBase
         $dotaBets = $betRepo->findDota2Matches();
         $csgoBets = $betRepo->findCsGoMatches();
         $hsBets = $betRepo->findHearthstoneMatches();
+        $scBets = $betRepo->findStarcraftMatches();
         $user = $this->getLoggedInUser();
 
 
@@ -31,6 +32,7 @@ class IndexController extends ControllerBase
             'dotaBets' => $dotaBets,
             'csgoBets' => $csgoBets,
             'hsBets' => $hsBets,
+            'scBets' => $scBets,
             'user' => $user,
         ];
     }

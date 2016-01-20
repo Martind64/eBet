@@ -64,4 +64,20 @@ class GamesController extends ControllerBase
             'hsBets' => $hearthstone,
         ];
     }
+
+    /**
+     * @Route("/hearthstone", name="hearthstone")
+     * @Template()
+     */
+    public function showStarcraftMatchesAction()
+    {
+        $betRepo = $this->getEM()->getRepository('AppBundle:Bet');
+        $starcraft = $betRepo->findStarcraftMatches();
+        $user = $this->getLoggedInUser();
+
+        return [
+            'user' => $user,
+            'scBets' => $starcraft,
+        ];
+    }
 }

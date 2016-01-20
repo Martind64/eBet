@@ -52,6 +52,21 @@ class BetRepository extends EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function findStarcraftMatches()
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $qb->select('b')
+            ->from('AppBundle:Bet', 'b')
+            ->join('b.game', 'g')
+            ->where('b.game = g.id')
+            ->andWhere('b.status = 1')
+            ->andWhere('g.name = :sc')
+            ->setParameter('sc', 'starcraft2');
+
+        return $query->getQuery()->getResult();
+    }
+
     public function findActiveBets()
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
