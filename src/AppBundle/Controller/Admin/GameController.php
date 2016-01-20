@@ -39,6 +39,7 @@ class GameController extends ControllerBase
                 $em = $this->getEm();
                 $em->persist($game);
                 $em->flush();
+                return $this->redirectToRoute('admin-index');
             }
         }
 

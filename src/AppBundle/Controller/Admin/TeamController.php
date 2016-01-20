@@ -40,6 +40,7 @@ class TeamController extends ControllerBase
                 $em = $this->getEm();
                 $em->persist($team);
                 $em->flush();
+                return $this->redirectToRoute('admin-index');
             }
         }
 

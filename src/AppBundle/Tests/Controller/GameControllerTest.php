@@ -2,22 +2,35 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AppBundle\Form\Type\GameType;
+use AppBundle\Entity\Game;
+use Symfony\Component\Form\Test\TypeTestCase;
 
-class GameControllerTest extends WebTestCase
+class GameControllerTest extends TypeTestCase
 {
-    public function testIndex()
+    public function testSubmittedData()
     {
-        $client = static::createClient();
+        $formData = array(
+            'name' => 'CSS',
+            'logo' => 'img',
+        );
 
-        $crawler = $client->request('GET', '/admin/game/create');
+        $type = new GameType();
+        $form = $this->factory->create($type);
 
-        $form = $crawler->selectButton('submit')->form();
+//        $object = Game::fromArray($formData);
 
-        $form['name'] = 'Hearthstone';
-        $logo['logo'] = 'img';
+        $form->submit($formData);
+        $this->assertTrue($form->isSynchronized());
+//        $this->assertEquals($object, $form->getData());
+        $view = $form->createView();
+        $children = $view->children;
 
-        $crawler = $client->submit($form);
+        foreach(array_keys($formData) as $key)
+        {
+            $this->assertArrayHasKey($key, $children);
+        }
+
 
 
 
