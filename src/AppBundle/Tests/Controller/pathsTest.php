@@ -5,7 +5,7 @@ namespace Tests\AppBundle;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class pathTest extends WebTestCase
+class pathsTest extends WebTestCase
 {
     /**
      * @dataProvider urlProvider

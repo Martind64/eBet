@@ -8,7 +8,7 @@ use Symfony\Component\Form\Test\TypeTestCase;
 
 class GameControllerTest extends TypeTestCase
 {
-    public function testSubmittedData()
+    public function testCreateGame()
     {
 
         $formData = array(
@@ -17,11 +17,11 @@ class GameControllerTest extends TypeTestCase
         );
 
         $type = new GameType();
-
         $form = $this->factory->create($type);
 
         $form->submit($formData);
         $this->assertTrue($form->isSynchronized());
+
         $view = $form->createView();
         $children = $view->children;
 
