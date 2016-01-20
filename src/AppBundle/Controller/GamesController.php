@@ -66,7 +66,7 @@ class GamesController extends ControllerBase
     }
 
     /**
-     * @Route("/hearthstone", name="hearthstone")
+     * @Route("/starcraft", name="starcraft")
      * @Template()
      */
     public function showStarcraftMatchesAction()
